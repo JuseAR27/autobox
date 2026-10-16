@@ -7,6 +7,7 @@
   <meta name="theme-color" content="#191b1f">
   <meta name="description" content="Inicia sesión en AutoBox para acceder a tu garaje, pedidos y recomendaciones.">
   <title>Iniciar sesión | AutoBox</title>
+  <link rel="stylesheet" href="css/carritoStyle.css">
   <link rel="stylesheet" href="css/registro.css">
   <link rel="stylesheet" href="css/login.css">
 </head>
@@ -46,7 +47,10 @@
             <path d="M6.5 19a6 6 0 0 1 11 0" />
           </svg>
         </a>
-        <button class="header-icon header-icon--cart" type="button" aria-label="Carrito de compras">
+        
+
+
+        <button class="header-icon header-icon--cart" type="button" aria-label="Carrito de compras" aria-controls="cart-frame" aria-expanded="false">
           <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
             <path d="M2.5 4h2.8l2.1 11.2a2 2 0 0 0 2 1.6h8.9a2 2 0 0 0 1.9-1.5L22 8H6" />
             <circle cx="10" cy="20" r="1.2" />
@@ -57,6 +61,10 @@
     </div>
   </header>
 
+
+
+
+  
   <!-- Presentación de AutoBox y formulario para iniciar sesión. -->
   <main class="registration-layout">
     <section class="hero-panel" aria-label="Bienvenida a AutoBox">
@@ -128,6 +136,7 @@
     </section>
   </main>
 
+
   <!-- Enlaces informativos y redes sociales del sitio. -->
   <footer class="site-footer">
     <div class="footer-columns">
@@ -163,6 +172,10 @@
           </button>
         </nav>
       </div>
+
+
+
+
 
       <section class="footer-group">
         <h3>Comprar</h3>
@@ -205,7 +218,16 @@
     </div>
   </footer>
 
+  <div class="cart-overlay" hidden></div>
+  <iframe class="cart-frame" id="cart-frame" src="carrito.html" title="Carrito de compras" aria-hidden="true"></iframe>
+  <script src="js/carrito.js"></script>
   <script src="js/login.js"></script>
+
+    
+
+
+
+
 </body>
 
 </html>
