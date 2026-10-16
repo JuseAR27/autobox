@@ -1,0 +1,82 @@
+.login-page .registration-card > .eyebrow {
+  margin-bottom: 14px;
+}
+
+.login-page .registration-card h1 {
+  margin: 0 0 8px;
+  color: #f4f5f6;
+  font-size: clamp(34px, 2.65vw, 43px);
+  font-weight: 700;
+  letter-spacing: -1.3px;
+  line-height: 1.08;
+}
+
+.login-page .form-intro {
+  margin-bottom: 34px;
+}
+
+.login-page .registration-form {
+  gap: 20px;
+}
+
+.login-options {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: -1px;
+}
+
+.remember-option {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: #aeb5c0;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.remember-option input {
+  width: 16px;
+  height: 16px;
+  margin: 0;
+  accent-color: var(--color-orange);
+  cursor: pointer;
+}
+
+.forgot-password {
+  padding: 4px 0;
+  border: 0;
+  background: transparent;
+  color: var(--color-orange);
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.forgot-password:hover {
+  color: #ff805d;
+  text-decoration: underline;
+}
+
+.login-page .form-divider {
+  margin-top: 28px;
+}
+
+@media (max-width: 680px) {
+  .login-page .registration-card h1 {
+    font-size: 36px;
+  }
+
+  .login-page .form-intro {
+    margin-bottom: 27px;
+  }
+
+  .login-options {
+    gap: 8px;
+  }
+
+  .remember-option,
+  .forgot-password {
+    font-size: 11px;
+  }
+}

@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#191b1f">
+  <meta name="description" content="Inicia sesión en AutoBox para acceder a tu garaje, pedidos y recomendaciones.">
+  <title>Iniciar sesión | AutoBox</title>
+  <link rel="stylesheet" href="css/registro.css">
+  <link rel="stylesheet" href="css/login.css">
+</head>
+
+<body class="login-page">
+  <header class="site-header">
+    <div class="header-content">
+      <a class="brand brand--header" href="index.html" aria-label="AutoBox, ir al inicio">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="m12 2.8 8 4.5v9.4l-8 4.5-8-4.5V7.3l8-4.5Z" />
+            <path d="m4.5 7.5 7.5 4.3 7.5-4.3M12 12v8.7M8 5l8 4.7" />
+          </svg>
+        </span>
+        <span class="brand-word">AUTO<span>BOX</span></span>
+      </a>
+
+      <nav class="primary-nav" aria-label="Navegación principal">
+        <a href="index.html">Inicio</a>
+        <a href="catalogo.html">Catálogo</a>
+        <a href="login.html" aria-current="page">Mi garaje</a>
+        <a href="#ayuda">Ayuda</a>
+      </nav>
+
+      <nav class="header-actions" aria-label="Accesos rápidos">
+        <button class="header-icon" type="button" aria-label="Cambiar tema">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <circle cx="12" cy="12" r="3.5" />
+            <path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42" />
+          </svg>
+        </button>
+        <a class="header-icon" href="login.html" aria-label="Mi cuenta">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <circle cx="12" cy="12" r="9" />
+            <circle cx="12" cy="9" r="3" />
+            <path d="M6.5 19a6 6 0 0 1 11 0" />
+          </svg>
+        </a>
+        <a class="header-icon header-icon--cart" href="carrito.html" aria-label="Carrito de compras">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M5 8h14l-.8 12H5.8L5 8Z" />
+            <path d="M9 9V6a3 3 0 0 1 6 0v3" />
+          </svg>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="registration-layout">
+    <section class="hero-panel" aria-label="Bienvenida a AutoBox">
+      <div class="hero-panel__shade"></div>
+      <a class="brand brand--hero" href="index.html" aria-label="AutoBox, ir al inicio">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="m12 2.8 8 4.5v9.4l-8 4.5-8-4.5V7.3l8-4.5Z" />
+            <path d="m4.5 7.5 7.5 4.3 7.5-4.3M12 12v8.7M8 5l8 4.7" />
+          </svg>
+        </span>
+        <span class="brand-word">AUTO<span>BOX</span></span>
+      </a>
+
+      <div class="hero-copy">
+        <p class="eyebrow">Tu auto. Tu garaje.</p>
+        <h1>Todo lo que necesitas,<br>en un solo lugar.</h1>
+        <p class="hero-description">Compatibilidad verificada, pedidos rastreables y asesoría experta.</p>
+      </div>
+    </section>
+
+    <section class="form-panel" aria-labelledby="login-title">
+      <div class="registration-card">
+        <p class="eyebrow">Qué bueno verte</p>
+        <h1 id="login-title">Inicia sesión</h1>
+        <p class="form-intro">Accede a tu garaje, pedidos y recomendaciones.</p>
+
+        <form id="login-form" class="registration-form">
+          <div class="form-field">
+            <label for="email">Correo electrónico</label>
+            <input id="email" name="email" type="email" autocomplete="email" placeholder="tu@correo.com" required>
+          </div>
+
+          <div class="form-field">
+            <label for="password">Contraseña</label>
+            <div class="password-control">
+              <input id="password" name="password" type="password" autocomplete="current-password" placeholder="Tu contraseña" required>
+              <button class="password-toggle" type="button" aria-controls="password" aria-pressed="false">Ver</button>
+            </div>
+          </div>
+
+          <div class="login-options">
+            <label class="remember-option" for="remember">
+              <input id="remember" name="remember" type="checkbox">
+              <span>Recordarme</span>
+            </label>
+            <button class="forgot-password" type="button">Olvidé mi contraseña</button>
+          </div>
+
+          <button class="submit-button" type="submit">
+            Entrar a AutoBox
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M5 12h14m-6-6 6 6-6 6" />
+            </svg>
+          </button>
+          <p id="login-message" class="form-message" role="status" aria-live="polite"></p>
+        </form>
+
+        <div class="form-divider"></div>
+        <p class="login-prompt">¿Aún no tienes cuenta? <a href="registro.html">Regístrate gratis</a></p>
+        <p class="privacy-note">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M12 3 5 6v5c0 4.5 2.8 8.1 7 10 4.2-1.9 7-5.5 7-10V6l-7-3Z" />
+            <path d="m9 12 2 2 4-4" />
+          </svg>
+          Tus datos están cifrados y protegidos
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-columns">
+      <div class="footer-brand">
+        <a class="brand brand--footer" href="index.html" aria-label="AutoBox, ir al inicio">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="m12 2.8 8 4.5v9.4l-8 4.5-8-4.5V7.3l8-4.5Z" />
+              <path d="m4.5 7.5 7.5 4.3 7.5-4.3M12 12v8.7M8 5l8 4.7" />
+            </svg>
+          </span>
+          <span class="brand-word">AUTO<span>BOX</span></span>
+        </a>
+        <p>La pieza correcta para tu auto, sin errores. Envíos a todo México.</p>
+        <nav class="social-links" aria-label="Redes sociales">
+          <a href="https://www.instagram.com/" aria-label="Instagram" rel="noreferrer">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <rect x="3" y="3" width="18" height="18" rx="5" />
+              <circle cx="12" cy="12" r="4" />
+              <circle class="social-dot" cx="17.5" cy="6.8" r="1" />
+            </svg>
+          </a>
+          <a href="https://www.facebook.com/" aria-label="Facebook" rel="noreferrer">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M14 21v-8h3l.5-4H14V7c0-1.2.4-2 2-2h2V1.4C17.3 1.2 16.2 1 15 1c-3.5 0-5 2.1-5 5.6V9H7v4h3v8h4Z" />
+            </svg>
+          </a>
+          <a href="https://www.youtube.com/" aria-label="YouTube" rel="noreferrer">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M21 7.2a2.8 2.8 0 0 0-2-2C17.2 4.7 12 4.7 12 4.7s-5.2 0-7 .5a2.8 2.8 0 0 0-2 2A29 29 0 0 0 2.5 12c0 1.7.2 3.3.5 4.8a2.8 2.8 0 0 0 2 2c1.8.5 7 .5 7 .5s5.2 0 7-.5a2.8 2.8 0 0 0 2-2c.3-1.5.5-3.1.5-4.8s-.2-3.3-.5-4.8Z" />
+              <path class="social-play" d="m10 9 5 3-5 3V9Z" />
+            </svg>
+          </a>
+        </nav>
+      </div>
+
+      <section class="footer-group">
+        <h3>Comprar</h3>
+        <ul>
+          <li><a href="catalogo.html">Catálogo</a></li>
+          <li><a href="catalogo.html">Motor y encendido</a></li>
+          <li><a href="catalogo.html">Frenos y suspensión</a></li>
+          <li><a href="catalogo.html">Ofertas</a></li>
+        </ul>
+      </section>
+
+      <section class="footer-group">
+        <h3>Mi AutoBox</h3>
+        <ul>
+          <li><a href="login.html">Mi garaje</a></li>
+          <li><a href="login.html">Mis pedidos</a></li>
+          <li><a href="login.html">Iniciar sesión</a></li>
+          <li><a href="registro.html">Crear cuenta</a></li>
+        </ul>
+      </section>
+
+      <section class="footer-group" id="ayuda">
+        <h3>Ayuda</h3>
+        <ul>
+          <li><a href="#ayuda">Centro de ayuda</a></li>
+          <li><a href="#ayuda">Envíos y entregas</a></li>
+          <li><a href="#ayuda">Cambios y garantía</a></li>
+          <li><a href="#ayuda">Contacto</a></li>
+        </ul>
+      </section>
+
+      <section class="footer-group footer-group--trust">
+        <h3>Confianza</h3>
+        <ul>
+          <li><span class="trust-icon">♢</span>Compra protegida</li>
+          <li><span class="trust-icon">✓</span>Compatibilidad verificada</li>
+          <li><span class="trust-icon">▤</span>Pagos seguros</li>
+        </ul>
+      </section>
+    </div>
+  </footer>
+
+  <script src="js/login.js"></script>
+</body>
+
+</html>
