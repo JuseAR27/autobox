@@ -1,0 +1,234 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;500;600;700;800&display=swap");
+
+/* Variables globales extraídas del registro e inicio de sesión */
+:root {
+  color-scheme: dark;
+  font-family: "Roboto Condensed", "Arial Narrow", Arial, sans-serif;
+  background: #121315;
+  color: #f4f5f6;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+
+  --color-page: #121315;
+  --color-panel: #191b1f;
+  --color-input: #101114;
+  --color-orange: #ff501f;
+  --color-muted: #aab0ba;
+  --color-border: #303238;
+  box-sizing: border-box;
+}
+
+html, body {
+  min-width: 320px;
+  margin: 0;
+  background: var(--color-page);
+  color: #f4f5f6;
+  scroll-behavior: smooth;
+}
+
+button, input {
+  font: inherit;
+}
+
+.inert-link {
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  color: inherit;
+}
+
+/* =========================================
+   BARRA DE NAVEGACIÓN (SITE-HEADER)
+   ========================================= */
+.site-header {
+  position: relative;
+  z-index: 1;
+  min-height: 86px;
+  border-bottom: 1px solid var(--color-border);
+  background: var(--color-panel);
+}
+
+.header-content {
+  display: flex;
+  width: min(100% - 64px, 1380px);
+  min-height: 86px;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.brand-mark {
+  display: grid;
+  width: 40px;
+  height: 40px;
+  place-items: center;
+  border-radius: 9px;
+  background: var(--color-orange);
+  transform: skew(-7deg);
+}
+
+.brand-mark svg {
+  width: 25px;
+  height: 25px;
+  transform: skew(7deg);
+  stroke: #fff;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.8;
+}
+
+.brand-word {
+  color: #f4f5f6;
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: -1.3px;
+}
+
+.brand-word span {
+  color: var(--color-orange);
+}
+
+.primary-nav {
+  display: flex;
+  gap: 34px;
+  margin-left: 48px;
+}
+
+.primary-nav a, .primary-nav .inert-link {
+  color: var(--color-muted);
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 160ms ease;
+}
+
+.primary-nav a:hover, .primary-nav .inert-link:hover {
+  color: #fff;
+}
+
+.header-actions {
+  display: flex;
+  gap: 13px;
+  margin-left: auto;
+}
+
+.header-icon {
+  display: grid;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+  border: 0;
+  border-radius: 12px;
+  background: transparent;
+  color: #e5e7e9;
+  cursor: pointer;
+}
+
+.header-icon--cart {
+  background: var(--color-input);
+}
+
+.header-icon svg {
+  width: 23px;
+  height: 23px;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-width: 1.8;
+}
+
+/* =========================================
+   PIE DE PÁGINA (SITE-FOOTER)
+   ========================================= */
+.site-footer {
+  padding: 68px max(32px, calc((100% - 1440px) / 2)) 24px;
+  border-top: 1px solid var(--color-border);
+  background: var(--color-panel);
+  margin-top: 60px;
+}
+
+.footer-columns {
+  display: grid;
+  max-width: 1440px;
+  grid-template-columns: minmax(220px, 1.8fr) repeat(4, minmax(120px, 1fr));
+  gap: clamp(22px, 4vw, 60px);
+  margin: 0 auto;
+}
+
+.footer-brand > p {
+  max-width: 300px;
+  margin: 13px 0 17px;
+  color: #9098a4;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.social-links {
+  display: flex;
+  gap: 9px;
+}
+
+.social-links a, .social-links .inert-link {
+  display: grid;
+  width: 36px;
+  height: 36px;
+  place-items: center;
+  border: 0;
+  border-radius: 50%;
+  background: #202228;
+  color: var(--color-muted);
+  cursor: pointer;
+  transition: background 160ms ease, color 160ms ease, transform 160ms ease;
+}
+
+.social-links a:hover, .social-links .inert-link:hover {
+  transform: translateY(-2px);
+  background: var(--color-orange);
+  color: #fff;
+}
+
+.social-links svg {
+  width: 17px;
+  height: 17px;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.8;
+}
+
+.footer-group h3 {
+  margin: 4px 0 19px;
+  color: #f4f5f6;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.footer-group ul {
+  display: grid;
+  gap: 11px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.footer-group li, .footer-group a, .footer-group .inert-link {
+  color: #9098a4;
+  font-size: 12px;
+  text-decoration: none;
+}
+
+.footer-group a:hover, .footer-group .inert-link:hover {
+  color: #fff;
+}
+
+.trust-icon {
+  width: 15px;
+  color: var(--color-orange);
+  font-weight: 700;
+}

@@ -5,31 +5,53 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AutoBox - Producto</title>
+    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/productoStyle.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/carritoStyle.css">
 </head>
 
 <body>
-    <!-- BARRA DE NAVEGACIÓN -->
-    <header class="navbar">
-        <div class="navbar-content">
-            <div class="navbar-left">
-                <div class="navbar-brand">
-                    <strong>AUTOBOX</strong>
-                </div>
-                <nav class="navbar-menu">
-                    <a href="index.html">Inicio</a>
-                    <a href="catalogo.html">Catálogo</a>
-                    <a href="#">Mi garaje</a>
-                    <a href="#">Ayuda</a>
-                </nav>
-            </div>
-
-            <div class="navbar-icons">
-                <button class="icon-btn">☀️</button>
-                <button class="icon-btn">👤</button>
-                <button class="icon-btn" id="open-cart-btn">🛍️</button>
-            </div>
+    <header class="site-header">
+        <div class="header-content">
+            <button class="brand brand--header inert-link" type="button" aria-label="AutoBox, ir al inicio">
+                <span class="brand-mark" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none">
+                        <path d="m12 2.8 8 4.5v9.4l-8 4.5-8-4.5V7.3l8-4.5Z" />
+                        <path d="m4.5 7.5 7.5 4.3 7.5-4.3M12 12v8.7M8 5l8 4.7" />
+                    </svg>
+                </span>
+                <span class="brand-word">AUTO<span>BOX</span></span>
+            </button>
+            <nav class="primary-nav" aria-label="Navegación principal">
+                <a href="index.html">Inicio</a>
+                <a href="catalogo.html">Catálogo</a>
+                <button class="inert-link" type="button">Mi garaje</button>
+                <button class="inert-link" type="button">Ayuda</button>
+            </nav>
+            <nav class="header-actions" aria-label="Accesos rápidos">
+                <button class="header-icon" type="button" aria-label="Cambiar tema">
+                    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <circle cx="12" cy="12" r="3.5" />
+                        <path
+                            d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42" />
+                    </svg>
+                </button>
+                <a class="header-icon" href="login.html" aria-label="Mi cuenta">
+                    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <circle cx="12" cy="12" r="9" />
+                        <circle cx="12" cy="9" r="3" />
+                        <path d="M6.5 19a6 6 0 0 1 11 0" />
+                    </svg>
+                </a>
+                <button class="header-icon header-icon--cart" type="button" aria-label="Carrito de compras"
+                    aria-controls="cart-frame" aria-expanded="false">
+                    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <path d="M2.5 4h2.8l2.1 11.2a2 2 0 0 0 2 1.6h8.9a2 2 0 0 0 1.9-1.5L22 8H6" />
+                        <circle cx="10" cy="20" r="1.2" />
+                        <circle cx="18" cy="20" r="1.2" />
+                    </svg>
+                </button>
+            </nav>
         </div>
     </header>
 
@@ -43,6 +65,8 @@
 
     <!-- VISTA PRINCIPAL DEL PRODUCTO -->
     <main class="product-container">
+
+        <!-- Galería de imágenes-->
         <div class="product-gallery">
             <div class="thumbnail-list">
                 <img src="https://via.placeholder.com/80x80/2b2d31/ffffff?text=1" alt="Miniatura 1"
@@ -60,15 +84,15 @@
 
         <!-- Detalles del producto -->
         <div class="product-details">
-            <h1 class="product-title">Escáner automotriz OBD2 Bluetooth</h1>
+            <h1 class="product-title" id="prod-title" style="display: block;">Cargando producto...</h1>
             <div class="product-pricing">
-                <span class="current-price">$1,399</span>
-                <span class="old-price">$1,651</span>
+                <span class="current-price" id="prod-price">$0.00</span>
+                <span class="old-price" id="prod-old-price"></span>
             </div>
             <p class="tax-info">IVA incluido • a 6 pagos sin intereses</p>
 
             <div class="compatibility-box">
-                <div class="compat-icon"></div>
+                <div class="compat-icon">⏱️</div>
                 <div class="compat-text">
                     <strong>Verifica si le queda a tu auto</strong>
                     <p>Selecciona marca, modelo, año y motor</p>
@@ -76,23 +100,20 @@
                 <a href="#" class="add-car-link">Agregar auto</a>
             </div>
 
-            <p class="product-description">
-                Escáner automotriz OBD2 Bluetooth de calidad profesional, diseñado para ofrecer rendimiento confiable y
-                una instalación precisa. Respaldado por garantía AutoBox.
+            <p class="product-description" id="prod-desc">
+                Cargando descripción...
             </p>
 
             <ul class="feature-list">
-                <li>Garantía de 12 meses</li>
-                <li>Calidad OEM o superior</li>
-                <li>Instalación directa</li>
+                <li>✔️ Garantía de 12 meses</li>
+                <li>✔️ Calidad OEM o superior</li>
+                <li>✔️ Instalación directa</li>
             </ul>
 
-            <p class="stock-status"><span class="dot"></span> En stock - 31 disponibles</p>
+            <p class="stock-status"><span class="dot"></span> En stock - <span id="prod-stock">0</span> disponibles</p>
 
-            <!-- Botón para interactuar con LocalStorage -->
-            <button class="btn-primary"
-                onclick="addToCart('FOX-OBD2', 'Escáner automotriz OBD2 Bluetooth', 1399, 'https://via.placeholder.com/80')">
-                🛒 Agregar al carrito
+            <button class="btn-primary" id="prod-add-btn">
+                Agregar al carrito
             </button>
             <div class="shipping-info">
                 <span>Envío estimado 2-4 días</span>
@@ -108,17 +129,14 @@
             <div class="specs-column">
                 <h3>Información técnica</h3>
                 <ul class="specs-list">
-                    <li><span>Marca</span> <span>Foxwell</span></li>
-                    <li><span>Número de parte</span> <span>FOX-OBD2</span></li>
-                    <li><span>Categoría</span> <span>Llaves y desarmadores</span></li>
-                    <li><span>Garantía</span> <span>12 meses</span></li>
+                    <li><span>Marca</span> <span id="spec-marca">Cargando...</span></li>
+                    <li><span>Número de parte</span> <span id="spec-sku">Cargando...</span></li>
                 </ul>
             </div>
             <div class="specs-column">
                 <h3>Vehículos compatibles</h3>
-                <ul class="specs-list">
-                    <li><span>Nissan Versa</span> <span>2008 - 2024 ✔️</span></li>
-                    <li><span>Volkswagen Jetta</span> <span>2008 - 2024 ✔️</span></li>
+                <ul class="specs-list" id="spec-compatibilidad-list">
+                    <li><span>Cargando compatibilidad...</span></li>
                 </ul>
             </div>
         </div>
@@ -129,116 +147,61 @@
         <span class="eyebrow">TAMBIÉN TE PUEDE SERVIR</span>
         <h2>Complementa tu compra</h2>
 
-        <div class="product-grid">
-            <!-- Producto recomendado 1 -->
-            <div class="product-card">
-                <div class="card-image">
-                    <img src="https://via.placeholder.com/300x200/2b2d31/ffffff?text=Bujías" alt="Bujías">
-                    <button class="heart-btn">🤍</button>
-                </div>
-                <div class="card-info">
-                    <span class="card-sku">NGK - NGK-BKR6</span>
-                    <h3>Bujías Iridium IX - Set 4</h3>
-                    <p class="rating">⭐ 4.5 (53)</p>
-                    <div class="card-bottom">
-                        <span class="card-price">$899 <small>IVA incluido</small></span>
-                        <button class="add-btn"
-                            onclick="addToCart('NGK-BKR6', 'Bujías Iridium IX', 899, 'img_url')">+</button>
-                    </div>
-                </div>
-            </div>
+        <div class="product-grid" id="recommendations-grid">
 
-            <!-- Producto recomendado 2 -->
-            <div class="product-card">
-                <div class="card-image">
-                    <img src="https://via.placeholder.com/300x200/2b2d31/ffffff?text=Filtro" alt="Filtro de aceite">
-                    <button class="heart-btn">🤍</button>
-                </div>
-                <div class="card-info">
-                    <span class="card-sku">MOBIL 1 - M1-108</span>
-                    <h3>Filtro de aceite sintético</h3>
-                    <p class="rating">⭐ 4.8 (80)</p>
-                    <div class="card-bottom">
-                        <span class="card-price">$289 <small>IVA incluido</small></span>
-                        <button class="add-btn"
-                            onclick="addToCart('M1-108', 'Filtro de aceite sintético', 289, 'img_url')">+</button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Producto recomendado 3 -->
-            <div class="product-card">
-                <div class="card-image">
-                    <img src="https://via.placeholder.com/300x200/2b2d31/ffffff?text=Aceite" alt="Aceite">
-                    <button class="heart-btn">🤍</button>
-                </div>
-                <div class="card-info">
-                    <span class="card-sku">CASTROL - CST-5W30</span>
-                    <h3>Aceite sintético 5W-30 - 5L</h3>
-                    <p class="rating">⭐ 4.7 (87)</p>
-                    <div class="card-bottom">
-                        <span class="card-price">$1,099 <small>IVA incluido</small></span>
-                        <button class="add-btn"
-                            onclick="addToCart('CST-5W30', 'Aceite sintético 5W-30', 1099, 'img_url')">+</button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Producto recomendado 4 -->
-            <div class="product-card">
-                <div class="card-image">
-                    <img src="https://via.placeholder.com/300x200/2b2d31/ffffff?text=Batería" alt="Batería">
-                    <button class="heart-btn">🤍</button>
-                </div>
-                <div class="card-info">
-                    <span class="card-sku">LTH - LTH-42AGM</span>
-                    <h3>Batería AGM 42-550</h3>
-                    <p class="rating">⭐ 4.8 (74)</p>
-                    <div class="card-bottom">
-                        <span class="card-price">$2,899 <small>IVA incluido</small></span>
-                        <button class="add-btn"
-                            onclick="addToCart('LTH-42AGM', 'Batería AGM 42-550', 2899, 'img_url')">+</button>
-                    </div>
-                </div>
-            </div>
         </div>
     </section>
 
     <!-- PIE DE PÁGINA -->
-    <footer class="footer">
+    <footer class="site-footer">
         <div class="footer-columns">
             <div class="footer-brand">
-                <h2>AUTOBOX</h2>
+                <button class="brand brand--footer inert-link" type="button" aria-label="AutoBox, ir al inicio">
+                    <span class="brand-mark" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none">
+                            <path d="m12 2.8 8 4.5v9.4l-8 4.5-8-4.5V7.3l8-4.5Z" />
+                            <path d="m4.5 7.5 7.5 4.3 7.5-4.3M12 12v8.7M8 5l8 4.7" />
+                        </svg>
+                    </span>
+                    <span class="brand-word">AUTO<span>BOX</span></span>
+                </button>
                 <p>La pieza correcta para tu auto, sin errores. Envíos a todo México.</p>
             </div>
-            <div>
-                <h4>Comprar</h4>
+            <section class="footer-group">
+                <h3>Comprar</h3>
                 <ul>
-                    <li><a href="#">Catálogo</a></li>
-                    <li><a href="#">Motor y encendido</a></li>
-                    <li><a href="#">Frenos y suspensión</a></li>
+                    <li><a href="catalogo.html">Catálogo</a></li>
+                    <li><button class="inert-link" type="button">Motor y encendido</button></li>
+                    <li><button class="inert-link" type="button">Frenos y suspensión</button></li>
                 </ul>
-            </div>
-            <div>
-                <h4>Mi AutoBox</h4>
+            </section>
+            <section class="footer-group">
+                <h3>Mi AutoBox</h3>
                 <ul>
-                    <li><a href="#">Mi garaje</a></li>
-                    <li><a href="#">Mis pedidos</a></li>
-                    <li><a href="#">Iniciar sesión</a></li>
+                    <li><button class="inert-link" type="button">Mi garaje</button></li>
+                    <li><button class="inert-link" type="button">Mis pedidos</button></li>
+                    <li><a href="login.html">Iniciar sesión</a></li>
                 </ul>
-            </div>
-            <div>
-                <h4>Confianza</h4>
-                <ul class="trust-list">
-                    <li>Compra protegida</li>
-                    <li>Compatibilidad verificada</li>
-                    <li>Pagos seguros</li>
+            </section>
+            <section class="footer-group footer-group--trust">
+                <h3>Confianza</h3>
+                <ul>
+                    <li><span class="trust-icon">✔️</span> Compra protegida</li>
+                    <li><span class="trust-icon">✔️</span> Compatibilidad verificada</li>
+                    <li><span class="trust-icon">✔️</span> Pagos seguros</li>
                 </ul>
-            </div>
+            </section>
         </div>
     </footer>
 
+    <div class="cart-overlay" hidden></div>
+    <iframe class="cart-frame" id="cart-frame" src="carrito.html" title="Carrito de compras"
+        aria-hidden="true"></iframe>
+
+    <script src="js/db.js"></script>
+    <script src="js/app.js"></script>
     <script src="js/producto.js"></script>
+    <script src="js/carrito.js"></script>
 </body>
 
 </html>
