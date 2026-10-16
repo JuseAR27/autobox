@@ -1,60 +1,55 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-theme="dark">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#191b1f">
+  <meta name="theme-color" content="#0e1420">
   <meta name="description" content="Crea tu cuenta AutoBox y encuentra las piezas correctas para tu auto.">
   <title>Crear cuenta | AutoBox</title>
+  <script>
+    try { document.documentElement.dataset.theme = localStorage.getItem('autobox:theme') || 'dark'; } catch (error) {}
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/estilos-compartidos.css">
   <link rel="stylesheet" href="css/carritoStyle.css">
   <link rel="stylesheet" href="css/registro.css">
 </head>
 
 <body>
-  <!-- Navegación principal compartida con la pantalla de inicio de sesión. -->
+  <div class="topbar">
+    <div class="container topbar__inner">
+      <span class="topbar__side">Envío gratis desde $1,499</span>
+      <span class="topbar__center"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>Compra protegida y garantía de compatibilidad</span>
+      <a class="topbar__side" href="index.html#ayuda">Ayuda 24/7</a>
+    </div>
+  </div>
   <header class="site-header">
-    <div class="header-content">
-      <button class="brand brand--header inert-link" type="button" aria-label="AutoBox, ir al inicio">
-        <span class="brand-mark" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none">
-            <path d="m12 2.8 8 4.5v9.4l-8 4.5-8-4.5V7.3l8-4.5Z" />
-            <path d="m4.5 7.5 7.5 4.3 7.5-4.3M12 12v8.7M8 5l8 4.7" />
-          </svg>
-        </span>
-        <span class="brand-word">AUTO<span>BOX</span></span>
-      </button>
-
-      <nav class="primary-nav" aria-label="Navegación principal">
-        <button class="inert-link" type="button">Inicio</button>
-        <button class="inert-link" type="button">Catálogo</button>
-        <button class="inert-link" type="button">Mi garaje</button>
-        <button class="inert-link" type="button">Ayuda</button>
+    <div class="container site-header__inner">
+      <a class="logo" href="index.html" aria-label="AUTOBOX - Inicio">
+        <svg class="logo__cube" viewBox="0 0 32 32" aria-hidden="true">
+          <path d="M16 2 28 9v14l-12 7L4 23V9z" fill="currentColor" />
+          <path d="M16 16 28 9M16 16 4 9M16 16v14" fill="none" stroke="var(--color-page)" stroke-width="2" stroke-linejoin="round" />
+        </svg>
+        <span class="logo__text">AUTOBOX</span>
+      </a>
+      <nav class="nav" data-nav aria-label="Principal">
+        <a class="nav__link" href="index.html">Inicio</a>
+        <a class="nav__link" href="catalogo.html">Catálogo</a>
+        <a class="nav__link" href="index.html#garaje">Mi garaje</a>
+        <a class="nav__link" href="index.html#ayuda">Ayuda</a>
       </nav>
-
-      <nav class="header-actions" aria-label="Accesos rápidos">
-        <button class="header-icon" type="button" aria-label="Cambiar tema">
-          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <circle cx="12" cy="12" r="3.5" />
-            <path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42" />
-          </svg>
+      <div class="site-header__actions">
+        <button class="icon-btn theme-toggle" type="button" data-theme-toggle aria-label="Cambiar tema">
+          <svg class="icon icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32 1.41 1.41M2 12h2m16 0h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+          <svg class="icon icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
         </button>
-        <a class="header-icon" href="login.html" aria-label="Mi cuenta">
-          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <circle cx="12" cy="12" r="9" />
-            <circle cx="12" cy="9" r="3" />
-            <path d="M6.5 19a6 6 0 0 1 11 0" />
-          </svg>
-        </a>
-        <button class="header-icon header-icon--cart" type="button" aria-label="Carrito de compras" aria-controls="cart-frame" aria-expanded="false">
-          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <path d="M2.5 4h2.8l2.1 11.2a2 2 0 0 0 2 1.6h8.9a2 2 0 0 0 1.9-1.5L22 8H6" />
-            <circle cx="10" cy="20" r="1.2" />
-            <circle cx="18" cy="20" r="1.2" />
-          </svg>
-        </button>
-      </nav>
+        <a class="icon-btn" href="login.html" aria-label="Mi cuenta"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></a>
+        <button class="icon-btn header-icon--cart" type="button" aria-label="Carrito" aria-controls="cart-frame" aria-expanded="false"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></button>
+        <button class="icon-btn site-header__menu" type="button" data-menu-toggle aria-label="Abrir menú" aria-expanded="false"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+      </div>
     </div>
   </header>
 
@@ -210,6 +205,7 @@
 
   <div class="cart-overlay" hidden></div>
   <iframe class="cart-frame" id="cart-frame" src="carrito.html" title="Carrito de compras" aria-hidden="true"></iframe>
+  <script src="js/header.js"></script>
   <script src="js/carrito.js"></script>
   <script src="js/registro.js"></script>
 </body>

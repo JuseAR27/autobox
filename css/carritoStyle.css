@@ -6,9 +6,13 @@
 /* Colores y tipografía base del inicio y del contenido del carrito. */
 body {
   margin: 0;
-  color: #f4f5f6;
-  background: #191b1f;
-  font-family: "Arial Narrow", "Roboto Condensed", "Segoe UI", sans-serif;
+  color: var(--color-text, #fff);
+  background: var(--color-page, #0e1420);
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+.cart-document .cart-panel {
+  color: var(--color-text, #fff);
 }
 
 /* Hacemos que el documento del carrito llene el iframe de index.html. */
@@ -38,25 +42,25 @@ a {
   border: 0;
   border-radius: 9px;
   color: #fff;
-  background: #ff501f;
+  background: var(--color-orange, #ff5a1f);
   cursor: pointer;
   font-size: 14px;
   font-weight: 700;
   text-decoration: none;
-  box-shadow: 0 10px 24px rgb(255 80 31 / 20%);
+  box-shadow: 0 10px 24px rgb(255 90 31 / 20%);
   transition: background 160ms ease, transform 160ms ease;
 }
 
 /* Le damos un poco de movimiento y brillo al pasar el cursor. */
 .catalog-link:hover {
-  background: #ff6840;
+  background: #ff7440;
   transform: translateY(-1px);
 }
 
 /* Capa oscura que aparece detrás del carrito cuando se abre. */
 .cart-overlay {
   position: fixed;
-  z-index: 10;
+  z-index: 60;
   inset: 0;
   background: rgb(0 0 0 / 35%);
   opacity: 0;
@@ -71,7 +75,7 @@ a {
 /* El iframe que contiene carrito.html entra desde la derecha de index. */
 .cart-frame {
   position: fixed;
-  z-index: 11;
+  z-index: 61;
   top: 0;
   right: 0;
   width: min(448px, 100%);
@@ -93,7 +97,7 @@ a {
   width: 100%;
   height: 100%;
   flex-direction: column;
-  background: #191b1f;
+  background: var(--color-panel, #161f2d);
 }
 
 /* Encabezado con la etiqueta, el título, la cantidad y el botón de cerrar. */
@@ -103,14 +107,14 @@ a {
   justify-content: space-between;
   min-height: 103px;
   padding: 20px 24px 18px;
-  border-bottom: 1px solid #34363a;
+  border-bottom: 1px solid var(--color-border, #243148);
 }
 
 /* Etiqueta naranja que aparece encima del título del carrito. */
 .cart-panel__eyebrow {
   display: block;
   margin-bottom: 7px;
-  color: #ff501f;
+  color: var(--color-orange, #ff5a1f);
   font-size: 11px;
   font-weight: 800;
   letter-spacing: 2px;
@@ -135,7 +139,7 @@ a {
 
 /* Texto pequeño para mostrar cuántos productos hay. */
 .cart-panel__count {
-  color: #bdc1c6;
+  color: var(--color-muted, #9aa8bc);
   font-size: 11px;
 }
 
@@ -147,7 +151,7 @@ a {
   border: 0;
   border-radius: 50%;
   background: transparent;
-  color: #e9eaec;
+  color: var(--color-text, #fff);
   cursor: pointer;
   font-size: 25px;
   line-height: 1;
@@ -155,7 +159,7 @@ a {
 
 /* Resaltam el control al pasar el cursor por encima. */
 .close-cart:hover {
-  background: #303237;
+  background: var(--color-surface-2, #1d2839);
 }
 
 /* Centra el mensaje de carrito vacío en el espacio disponible. */
@@ -181,14 +185,14 @@ a {
   margin: 0 auto 17px;
   place-items: center;
   border-radius: 50%;
-  background: #2b201e;
+  background: var(--color-input, #131b28);
 }
 
 /* Dibuja el icono de carrito en naranja con el SVG del HTML. */
 .empty-cart__icon svg {
   width: 25px;
   height: 25px;
-  stroke: #ff501f;
+  stroke: var(--color-orange, #ff5a1f);
   stroke-linecap: round;
   stroke-linejoin: round;
   stroke-width: 1.8;
@@ -206,7 +210,7 @@ a {
 /* Texto secundario debajo del aviso de carrito vacío. */
 .empty-cart p {
   margin: 0 0 20px;
-  color: #bdc1c6;
+  color: var(--color-muted, #9aa8bc);
   font-size: 12px;
 }
 
@@ -214,4 +218,3 @@ a {
 body.cart-open {
   overflow: hidden;
 }
-

@@ -1,11 +1,15 @@
 <!doctype html>
-<html lang="es">
+<html lang="es" data-theme="dark">
 
 <head>
   <!-- Configuración básica y estilos del contenido del carrito. -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Carrito | Autobox</title>
+  <script>
+    try { document.documentElement.dataset.theme = localStorage.getItem('autobox:theme') || 'dark'; } catch (error) {}
+  </script>
+  <link rel="stylesheet" href="css/estilos-compartidos.css">
   <link rel="stylesheet" href="css/carritoStyle.css">
 </head>
 

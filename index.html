@@ -80,8 +80,8 @@
                 <svg class="icon icon-sun" width="20" height="20"><use href="#i-sun" /></svg>
                 <svg class="icon icon-moon" width="20" height="20"><use href="#i-moon" /></svg>
             </button>
-            <a class="icon-btn" href="/login" aria-label="Mi cuenta"><svg class="icon" width="20" height="20"><use href="#i-user" /></svg></a>
-            <a class="icon-btn" href="/carrito" aria-label="Carrito"><svg class="icon" width="20" height="20"><use href="#i-bag" /></svg></a>
+            <a class="icon-btn" href="login.html" aria-label="Mi cuenta"><svg class="icon" width="20" height="20"><use href="#i-user" /></svg></a>
+            <button class="icon-btn header-icon--cart" type="button" aria-label="Carrito" aria-controls="cart-frame" aria-expanded="false"><svg class="icon" width="20" height="20"><use href="#i-bag" /></svg></button>
             <button class="icon-btn site-header__menu" type="button" data-menu-toggle aria-label="Abrir menú" aria-expanded="false">
                 <svg class="icon" width="20" height="20"><use href="#i-menu" /></svg>
             </button>
@@ -373,7 +373,7 @@
                 <ul>
                     <li><a href="/garaje">Mi garaje</a></li>
                     <li><a href="/pedidos">Mis pedidos</a></li>
-                    <li><a href="/login">Iniciar sesión</a></li>
+                    <li><a href="login.html">Iniciar sesión</a></li>
                     <li><a href="/registro">Crear cuenta</a></li>
                 </ul>
             </div>
@@ -409,6 +409,9 @@
     </div>
 </footer>
 
+<button class="cart-overlay" type="button" aria-label="Cerrar carrito" hidden></button>
+<iframe class="cart-frame" id="cart-frame" src="carrito.html" title="Carrito de compras" aria-hidden="true" tabindex="-1"></iframe>
+
 <!-- ===== Interactividad mínima ===== -->
 <script>
     (function () {
@@ -422,6 +425,10 @@
         themeBtn.addEventListener('click', function () {
             root.dataset.theme = root.dataset.theme === 'light' ? 'dark' : 'light';
             try { localStorage.setItem('autobox:theme', root.dataset.theme); } catch (e) {}
+            var cartFrame = document.querySelector('#cart-frame');
+            if (cartFrame && cartFrame.contentWindow) {
+                cartFrame.contentWindow.postMessage({ type: 'autobox:theme', theme: root.dataset.theme }, '*');
+            }
             labelTheme();
         });
         labelTheme();
@@ -432,6 +439,31 @@
         menuBtn.addEventListener('click', function () {
             var open = nav.classList.toggle('is-open');
             menuBtn.setAttribute('aria-expanded', String(open));
+        });
+
+        /* --- Carrito lateral --- */
+        var cartButton = document.querySelector('.header-icon--cart');
+        var cartFrame = document.querySelector('#cart-frame');
+        var cartOverlay = document.querySelector('.cart-overlay');
+
+        function setCartOpen(isOpen) {
+            cartFrame.classList.toggle('is-open', isOpen);
+            cartFrame.setAttribute('aria-hidden', String(!isOpen));
+            cartFrame.tabIndex = isOpen ? 0 : -1;
+            cartButton.setAttribute('aria-expanded', String(isOpen));
+            cartOverlay.hidden = !isOpen;
+            document.body.classList.toggle('cart-open', isOpen);
+        }
+
+        cartButton.addEventListener('click', function () { setCartOpen(true); });
+        cartOverlay.addEventListener('click', function () { setCartOpen(false); });
+        document.addEventListener('keydown', function (event) {
+            if (event.key === 'Escape') setCartOpen(false);
+        });
+        window.addEventListener('message', function (event) {
+            if (event.source === cartFrame.contentWindow && event.data === 'close-cart') {
+                setCartOpen(false);
+            }
         });
 
         /* --- Buscador de auto (mismos datos que backend/database/seed.sql) --- */
