@@ -1,0 +1,218 @@
+/* Incluimos el borde y el relleno en el tamaño de los elementos. */
+* {
+  box-sizing: border-box;
+}
+
+/* Colores y tipografía base del inicio y del contenido del carrito. */
+body {
+  margin: 0;
+  color: #f4f5f6;
+  background: #191b1f;
+  font-family: "Arial Narrow", "Roboto Condensed", "Segoe UI", sans-serif;
+}
+
+/* Hacemos que el documento del carrito llene el iframe de index.html. */
+html,
+.cart-document {
+  height: 100%;
+}
+
+/* Botones y enlaces usan la tipografía definida para el carrito. */
+button,
+a {
+  font: inherit;
+}
+
+/* El botón de prueba de index conserva una tipografía sencilla. */
+.open-cart {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Estilo y dimensiones del botón que lleva al catálogo. */
+.catalog-link {
+  display: inline-flex;
+  min-height: 46px;
+  align-items: center;
+  justify-content: center;
+  padding: 0 22px;
+  border: 0;
+  border-radius: 9px;
+  color: #fff;
+  background: #ff501f;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 10px 24px rgb(255 80 31 / 20%);
+  transition: background 160ms ease, transform 160ms ease;
+}
+
+/* Le damos un poco de movimiento y brillo al pasar el cursor. */
+.catalog-link:hover {
+  background: #ff6840;
+  transform: translateY(-1px);
+}
+
+/* Capa oscura que aparece detrás del carrito cuando se abre. */
+.cart-overlay {
+  position: fixed;
+  z-index: 10;
+  inset: 0;
+  background: rgb(0 0 0 / 35%);
+  opacity: 0;
+  transition: opacity 250ms ease;
+}
+
+/* La capa se hace visible cuando index quita el atributo hidden. */
+.cart-overlay:not([hidden]) {
+  opacity: 1;
+}
+
+/* El iframe que contiene carrito.html entra desde la derecha de index. */
+.cart-frame {
+  position: fixed;
+  z-index: 11;
+  top: 0;
+  right: 0;
+  width: min(448px, 100%);
+  height: 100vh;
+  border: 0;
+  box-shadow: -8px 0 30px rgb(0 0 0 / 14%);
+  transform: translateX(100%);
+  transition: transform 250ms ease;
+}
+
+/* carrito.js pone esta clase para deslizar el panel a la pantalla. */
+.cart-frame.is-open {
+  transform: translateX(0);
+}
+
+/* El contenido de carrito.html llena por completo el iframe. */
+.cart-document .cart-panel {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  background: #191b1f;
+}
+
+/* Encabezado con la etiqueta, el título, la cantidad y el botón de cerrar. */
+.cart-panel__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 103px;
+  padding: 20px 24px 18px;
+  border-bottom: 1px solid #34363a;
+}
+
+/* Etiqueta naranja que aparece encima del título del carrito. */
+.cart-panel__eyebrow {
+  display: block;
+  margin-bottom: 7px;
+  color: #ff501f;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+/* Pone el nombre del carrito y el contador en una misma fila. */
+.cart-panel__title-row {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+}
+
+/* Ajusta el título para que quede compacto y con estilo condensado. */
+.cart-panel__header h1 {
+  margin: 0;
+  font-family: "Arial Narrow", "Roboto Condensed", Impact, sans-serif;
+  font-size: 27px;
+  font-stretch: condensed;
+  line-height: 1;
+}
+
+/* Texto pequeño para mostrar cuántos productos hay. */
+.cart-panel__count {
+  color: #bdc1c6;
+  font-size: 11px;
+}
+
+/* Botón con la cruz que cierra el panel desde carrito.html. */
+.close-cart {
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: #e9eaec;
+  cursor: pointer;
+  font-size: 25px;
+  line-height: 1;
+}
+
+/* Resaltam el control al pasar el cursor por encima. */
+.close-cart:hover {
+  background: #303237;
+}
+
+/* Centra el mensaje de carrito vacío en el espacio disponible. */
+.cart-panel__content {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+/* Alinea el contenido del mensaje vacío en el centro. */
+.empty-cart {
+  width: 100%;
+  text-align: center;
+}
+
+/* Círculo oscuro que contiene el icono del carrito. */
+.empty-cart__icon {
+  display: grid;
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 17px;
+  place-items: center;
+  border-radius: 50%;
+  background: #2b201e;
+}
+
+/* Dibuja el icono de carrito en naranja con el SVG del HTML. */
+.empty-cart__icon svg {
+  width: 25px;
+  height: 25px;
+  stroke: #ff501f;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.8;
+}
+
+/* Título y descripción del estado vacío. */
+.empty-cart h2 {
+  margin: 0 0 8px;
+  font-family: "Arial Narrow", "Roboto Condensed", Impact, sans-serif;
+  font-size: 25px;
+  font-stretch: condensed;
+  line-height: 1.15;
+}
+
+/* Texto secundario debajo del aviso de carrito vacío. */
+.empty-cart p {
+  margin: 0 0 20px;
+  color: #bdc1c6;
+  font-size: 12px;
+}
+
+/* Bloquea el desplazamiento del inicio mientras el panel está abierto. */
+body.cart-open {
+  overflow: hidden;
+}
+
+

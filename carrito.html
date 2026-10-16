@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <!-- Configuración básica y estilos del contenido del carrito. -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Carrito | Autobox</title>
+  <link rel="stylesheet" href="css/carritoStyle.css">
+</head>
+<body class="cart-document">
+  <!-- Este archivo contiene únicamente el contenido que se muestra en el carrito. -->
+  <aside class="cart-panel" aria-labelledby="cart-title">
+    <!-- Encabezado con el nombre del carrito, la cantidad y el control para cerrarlo. -->
+    <div class="cart-panel__header">
+      <div class="cart-panel__heading">
+        <span class="cart-panel__eyebrow">Tu selección</span>
+        <div class="cart-panel__title-row">
+          <h1 id="cart-title">Carrito</h1>
+          <span class="cart-panel__count">0 productos</span>
+        </div>
+      </div>
+      <!-- Le avisamos a index.html para que cierre el panel lateral. -->
+      <button class="close-cart" type="button" aria-label="Cerrar carrito">&times;</button>
+    </div>
+    <!-- Este es el mensaje y el acceso al catálogo que se ven cuando no hay productos. -->
+    <div class="cart-panel__content">
+      <div class="empty-cart">
+        <!-- Icono de carrito dibujado en SVG, sin depender de imágenes externas. -->
+        <div class="empty-cart__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M3 4h2l2.1 11.2a2 2 0 0 0 2 1.6h8.8a2 2 0 0 0 1.9-1.5L21 9H6" />
+            <circle cx="10" cy="20" r="1" />
+            <circle cx="18" cy="20" r="1" />
+          </svg>
+        </div>
+        <h2>Tu carrito está vacío</h2>
+        <p>Explora piezas verificadas para tu auto.</p>
+        <a class="catalog-link" href="catalogo.html" target="_top">Ver catálogo</a>
+      </div>
+    </div>
+  </aside>
+
+  <script>
+    // El botón de cerrar envía un mensaje a la página que contiene este iframe.
+    document.querySelector(".close-cart").addEventListener("click", () => {
+      if (window.parent !== window) {
+        window.parent.postMessage("close-cart", "*");
+      } else {
+        // Si abre carrito.html directamente, regresa al inicio.
+        window.location.href = "index.html";
+      }
+    });
+  </script>
+</body>
+</html>
