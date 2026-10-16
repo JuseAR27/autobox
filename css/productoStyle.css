@@ -7,18 +7,31 @@ body {
 
 /* NAVBAR */
 .navbar {
+    background-color: #191b1f;
+    border-bottom: 1px solid #34363a;
+    display: flex;
+    justify-content: center;
+}
+
+.navbar-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 100%;
+    max-width: 1200px;
     padding: 15px 40px;
-    background-color: #191b1f;
-    border-bottom: 1px solid #34363a;
 }
 
-.navbar-brand strong {
-    color: #ff501f;
-    font-size: 20px;
-    margin-left: 10px;
+.navbar-left {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.navbar-brand strong { 
+    color: #ff501f; 
+    font-size: 20px; 
+    margin-left: 10px; 
 }
 
 .navbar-menu a {
@@ -26,15 +39,47 @@ body {
     text-decoration: none;
     margin: 0 15px;
     font-size: 15px;
+    transition: color 0.2s ease;
 }
 
-.icon-btn {
-    background: none;
-    border: none;
-    font-size: 20px;
-    cursor: pointer;
-    color: #fff;
-    margin-left: 15px;
+.navbar-menu a:hover {
+    color: #ff501f;
+}
+
+.icon-btn { 
+    background: none; 
+    border: none; 
+    font-size: 20px; 
+    cursor: pointer; 
+    color: #fff; 
+    margin-left: 15px; 
+}
+
+.breadcrumbs {
+    max-width: 1200px;
+    margin: 25px auto 0 auto; /* Centrado y con margen superior */
+    padding: 0 40px;
+    font-size: 13px; /* Tamaño de fuente sutil */
+    color: #bdc1c6;
+}
+
+.breadcrumbs a {
+    color: #888;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.breadcrumbs a:hover {
+    color: #ff501f;
+}
+
+.breadcrumbs .separator {
+    margin: 0 10px;
+    color: #555; /* Color más oscuro para el símbolo "/" */
+}
+
+.breadcrumbs .current-page {
+    color: #e9eaec; /* Ligeramente más claro para la página actual */
 }
 
 /* LAYOUT PRINCIPAL DE PRODUCTO */
@@ -88,7 +133,6 @@ body {
     font-size: 28px;
     margin: 0 0 10px 0;
     display: none;
-    /* Según el figma, parece que el titulo principal arriba no esta visible en la vista previa 1, pero lo dejo por semántica */
 }
 
 .product-pricing {

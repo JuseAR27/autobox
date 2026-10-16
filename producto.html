@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,39 +8,57 @@
     <link rel="stylesheet" href="css/productoStyle.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
     <!-- BARRA DE NAVEGACIÓN -->
     <header class="navbar">
-        <div class="navbar-brand">
-            <strong>AUTOBOX</strong>
-        </div>
-        <nav class="navbar-menu">
-            <a href="index.html">Inicio</a>
-            <a href="catalogo.html">Catálogo</a>
-            <a href="#">Mi garaje</a>
-            <a href="#">Ayuda</a>
-        </nav>
-        <div class="navbar-icons">
-            <button class="icon-btn">☀️</button>
-            <button class="icon-btn">👤</button>
-            <button class="icon-btn" id="open-cart-btn">🛍️</button>
+        <div class="navbar-content">
+            <div class="navbar-left">
+                <div class="navbar-brand">
+                    <strong>AUTOBOX</strong>
+                </div>
+                <nav class="navbar-menu">
+                    <a href="index.html">Inicio</a>
+                    <a href="catalogo.html">Catálogo</a>
+                    <a href="#">Mi garaje</a>
+                    <a href="#">Ayuda</a>
+                </nav>
+            </div>
+
+            <div class="navbar-icons">
+                <button class="icon-btn">☀️</button>
+                <button class="icon-btn">👤</button>
+                <button class="icon-btn" id="open-cart-btn">🛍️</button>
+            </div>
         </div>
     </header>
+
+    <nav class="breadcrumbs">
+        <a href="index.html">Inicio</a>
+        <span class="separator">/</span>
+        <a href="catalogo.html">Herramientas y Mantenimiento</a>
+        <span class="separator">/</span>
+        <span class="current-page">Escáner automotriz OBD2 Bluetooth</span>
+    </nav>
 
     <!-- VISTA PRINCIPAL DEL PRODUCTO -->
     <main class="product-container">
         <div class="product-gallery">
             <div class="thumbnail-list">
-                <img src="https://via.placeholder.com/80x80/2b2d31/ffffff?text=1" alt="Miniatura 1" class="thumbnail active" onclick="changeMainImage(this.src)">
-                <img src="https://via.placeholder.com/80x80/2b2d31/ffffff?text=2" alt="Miniatura 2" class="thumbnail" onclick="changeMainImage(this.src)">
-                <img src="https://via.placeholder.com/80x80/2b2d31/ffffff?text=3" alt="Miniatura 3" class="thumbnail" onclick="changeMainImage(this.src)">
+                <img src="https://via.placeholder.com/80x80/2b2d31/ffffff?text=1" alt="Miniatura 1"
+                    class="thumbnail active" onclick="changeMainImage(this.src)">
+                <img src="https://via.placeholder.com/80x80/2b2d31/ffffff?text=2" alt="Miniatura 2" class="thumbnail"
+                    onclick="changeMainImage(this.src)">
+                <img src="https://via.placeholder.com/80x80/2b2d31/ffffff?text=3" alt="Miniatura 3" class="thumbnail"
+                    onclick="changeMainImage(this.src)">
             </div>
             <div class="main-image-container">
-                <img id="main-image" src="https://via.placeholder.com/600x400/2b2d31/ffffff?text=Escáner+Automotriz" alt="Imagen Principal del Producto">
+                <img id="main-image" src="https://via.placeholder.com/600x400/2b2d31/ffffff?text=Escáner+Automotriz"
+                    alt="Imagen Principal del Producto">
             </div>
         </div>
 
-        <!-- Derecha: Detalles del producto -->
+        <!-- Detalles del producto -->
         <div class="product-details">
             <h1 class="product-title">Escáner automotriz OBD2 Bluetooth</h1>
             <div class="product-pricing">
@@ -58,7 +77,8 @@
             </div>
 
             <p class="product-description">
-                Escáner automotriz OBD2 Bluetooth de calidad profesional, diseñado para ofrecer rendimiento confiable y una instalación precisa. Respaldado por garantía AutoBox.
+                Escáner automotriz OBD2 Bluetooth de calidad profesional, diseñado para ofrecer rendimiento confiable y
+                una instalación precisa. Respaldado por garantía AutoBox.
             </p>
 
             <ul class="feature-list">
@@ -70,7 +90,8 @@
             <p class="stock-status"><span class="dot"></span> En stock - 31 disponibles</p>
 
             <!-- Botón para interactuar con LocalStorage -->
-            <button class="btn-primary" onclick="addToCart('FOX-OBD2', 'Escáner automotriz OBD2 Bluetooth', 1399, 'https://via.placeholder.com/80')">
+            <button class="btn-primary"
+                onclick="addToCart('FOX-OBD2', 'Escáner automotriz OBD2 Bluetooth', 1399, 'https://via.placeholder.com/80')">
                 🛒 Agregar al carrito
             </button>
             <div class="shipping-info">
@@ -107,7 +128,7 @@
     <section class="recommendations-section">
         <span class="eyebrow">TAMBIÉN TE PUEDE SERVIR</span>
         <h2>Complementa tu compra</h2>
-        
+
         <div class="product-grid">
             <!-- Producto recomendado 1 -->
             <div class="product-card">
@@ -121,7 +142,8 @@
                     <p class="rating">⭐ 4.5 (53)</p>
                     <div class="card-bottom">
                         <span class="card-price">$899 <small>IVA incluido</small></span>
-                        <button class="add-btn" onclick="addToCart('NGK-BKR6', 'Bujías Iridium IX', 899, 'img_url')">+</button>
+                        <button class="add-btn"
+                            onclick="addToCart('NGK-BKR6', 'Bujías Iridium IX', 899, 'img_url')">+</button>
                     </div>
                 </div>
             </div>
@@ -138,11 +160,12 @@
                     <p class="rating">⭐ 4.8 (80)</p>
                     <div class="card-bottom">
                         <span class="card-price">$289 <small>IVA incluido</small></span>
-                        <button class="add-btn" onclick="addToCart('M1-108', 'Filtro de aceite sintético', 289, 'img_url')">+</button>
+                        <button class="add-btn"
+                            onclick="addToCart('M1-108', 'Filtro de aceite sintético', 289, 'img_url')">+</button>
                     </div>
                 </div>
             </div>
-            
+
             <!-- Producto recomendado 3 -->
             <div class="product-card">
                 <div class="card-image">
@@ -155,7 +178,8 @@
                     <p class="rating">⭐ 4.7 (87)</p>
                     <div class="card-bottom">
                         <span class="card-price">$1,099 <small>IVA incluido</small></span>
-                        <button class="add-btn" onclick="addToCart('CST-5W30', 'Aceite sintético 5W-30', 1099, 'img_url')">+</button>
+                        <button class="add-btn"
+                            onclick="addToCart('CST-5W30', 'Aceite sintético 5W-30', 1099, 'img_url')">+</button>
                     </div>
                 </div>
             </div>
@@ -172,7 +196,8 @@
                     <p class="rating">⭐ 4.8 (74)</p>
                     <div class="card-bottom">
                         <span class="card-price">$2,899 <small>IVA incluido</small></span>
-                        <button class="add-btn" onclick="addToCart('LTH-42AGM', 'Batería AGM 42-550', 2899, 'img_url')">+</button>
+                        <button class="add-btn"
+                            onclick="addToCart('LTH-42AGM', 'Batería AGM 42-550', 2899, 'img_url')">+</button>
                     </div>
                 </div>
             </div>
@@ -215,4 +240,5 @@
 
     <script src="js/producto.js"></script>
 </body>
+
 </html>
