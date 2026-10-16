@@ -1,6 +1,6 @@
 # AutoBox
 
-**Nombre del equipo:** Team AutoBox
+**Nombre del equipo:** Equipo 2  
 **Nombre de la tienda:** AutoBox
 
 ### Integrantes:
