@@ -10,26 +10,47 @@
 </head>
 
 <body>
-    <!-- BARRA DE NAVEGACIÓN -->
-    <header class="navbar">
-        <div class="navbar-content">
-            <div class="navbar-left">
-                <div class="navbar-brand">
-                    <strong>AUTOBOX</strong>
-                </div>
-                <nav class="navbar-menu">
-                    <a href="index.html">Inicio</a>
-                    <a href="catalogo.html">Catálogo</a>
-                    <a href="#">Mi garaje</a>
-                    <a href="#">Ayuda</a>
-                </nav>
-            </div>
+    <header class="site-header">
+        <div class="header-content">
+            <button class="brand brand--header inert-link" type="button" aria-label="AutoBox, ir al inicio">
+                <span class="brand-mark" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none">
+                        <path d="m12 2.8 8 4.5v9.4l-8 4.5-8-4.5V7.3l8-4.5Z" />
+                        <path d="m4.5 7.5 7.5 4.3 7.5-4.3M12 12v8.7M8 5l8 4.7" />
+                    </svg>
+                </span>
+                <span class="brand-word">AUTO<span>BOX</span></span>
+            </button>
 
-            <div class="navbar-icons">
-                <button class="icon-btn">☀️</button>
-                <button class="icon-btn">👤</button>
-                <button class="icon-btn" id="open-cart-btn">🛍️</button>
-            </div>
+            <nav class="primary-nav" aria-label="Navegación principal">
+                <button class="inert-link" type="button">Inicio</button>
+                <button class="inert-link" type="button">Catálogo</button>
+                <button class="inert-link" type="button">Mi garaje</button>
+                <button class="inert-link" type="button">Ayuda</button>
+            </nav>
+
+            <nav class="header-actions" aria-label="Accesos rápidos">
+                <button class="header-icon" type="button" aria-label="Cambiar tema">
+                    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <circle cx="12" cy="12" r="3.5" />
+                        <path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42" />
+                    </svg>
+                </button>
+                <a class="header-icon" href="login.html" aria-label="Mi cuenta">
+                    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <circle cx="12" cy="12" r="9" />
+                        <circle cx="12" cy="9" r="3" />
+                        <path d="M6.5 19a6 6 0 0 1 11 0" />
+                    </svg>
+                </a>
+                <button class="header-icon header-icon--cart" type="button" aria-label="Carrito de compras" aria-controls="cart-frame" aria-expanded="false">
+                    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <path d="M2.5 4h2.8l2.1 11.2a2 2 0 0 0 2 1.6h8.9a2 2 0 0 0 1.9-1.5L22 8H6" />
+                        <circle cx="10" cy="20" r="1.2" />
+                        <circle cx="18" cy="20" r="1.2" />
+                    </svg>
+                </button>
+            </nav>
         </div>
     </header>
 
@@ -238,6 +259,9 @@
         </div>
     </footer>
 
+    <div class="cart-overlay" hidden></div>
+    <iframe class="cart-frame" id="cart-frame" src="carrito.html" title="Carrito de compras" aria-hidden="true"></iframe>
+    <script src="js/carrito.js"></script>
     <script src="js/producto.js"></script>
 </body>
 
