@@ -1,0 +1,523 @@
+<!doctype html>
+<html lang="es" data-theme="dark">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="AUTOBOX: la pieza correcta para tu auto, sin errores. Compatibilidad garantizada y envíos a todo México." />
+    <title>AUTOBOX · Inicio</title>
+
+    <!-- Aplica el tema guardado antes de pintar (evita parpadeo) -->
+    <script>
+        try { document.documentElement.dataset.theme = localStorage.getItem('autobox:theme') || 'dark'; } catch (e) {}
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+<!-- ===== Sprite de iconos (se usan con <use href="#i-nombre">) ===== -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-truck" viewBox="0 0 24 24"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/></symbol>
+    <symbol id="i-headphones" viewBox="0 0 24 24"><path d="M3 14h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-7a9 9 0 0 1 18 0v7a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3"/></symbol>
+    <symbol id="i-card" viewBox="0 0 24 24"><rect width="20" height="14" x="2" y="5" rx="2"/><line x1="2" x2="22" y1="10" y2="10"/></symbol>
+    <symbol id="i-lock" viewBox="0 0 24 24"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></symbol>
+    <symbol id="i-user" viewBox="0 0 24 24"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></symbol>
+    <symbol id="i-bag" viewBox="0 0 24 24"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 6h16"/><path d="M4 12h16"/><path d="M4 18h16"/></symbol>
+    <symbol id="i-zap" viewBox="0 0 24 24"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></symbol>
+    <symbol id="i-check-circle" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+    <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></symbol>
+    <symbol id="i-chevron-down" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+    <symbol id="i-heart" viewBox="0 0 24 24"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M12 5v14"/></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></symbol>
+    <symbol id="i-wrench" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></symbol>
+    <symbol id="i-car" viewBox="0 0 24 24"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><path d="M9 17h6"/><circle cx="17" cy="17" r="2"/></symbol>
+    <symbol id="i-gauge" viewBox="0 0 24 24"><path d="m12 14 4-4"/><path d="M3.34 19a10 10 0 1 1 17.32 0"/></symbol>
+    <symbol id="i-disc" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/><path d="M12 2v3"/><path d="M12 19v3"/><path d="M2 12h3"/><path d="M19 12h3"/></symbol>
+</svg>
+
+<!-- ===== Barra superior ===== -->
+<div class="topbar">
+    <div class="container topbar__inner">
+        <span class="topbar__side">Envío gratis desde $1,499</span>
+        <span class="topbar__center">
+          <svg class="icon" width="14" height="14"><use href="#i-lock" /></svg>
+          Compra protegida y garantía de compatibilidad
+        </span>
+        <a class="topbar__side" href="/ayuda">Ayuda 24/7</a>
+    </div>
+</div>
+
+<!-- ===== Header ===== -->
+<header class="site-header">
+    <div class="container site-header__inner">
+        <a class="logo logo--cube" href="/" aria-label="AUTOBOX - Inicio">
+            <svg class="logo__cube" viewBox="0 0 32 32" aria-hidden="true">
+                <path d="M16 2 28 9v14l-12 7L4 23V9z" fill="currentColor" />
+                <path d="M16 16 28 9M16 16 4 9M16 16v14" fill="none" stroke="var(--color-bg)" stroke-width="2" stroke-linejoin="round" />
+            </svg>
+            <span class="logo__text">AUTOBOX</span>
+        </a>
+
+        <nav class="nav" data-nav aria-label="Principal">
+            <a class="nav__link is-active" href="/" aria-current="page">Inicio</a>
+            <a class="nav__link" href="/catalogo">Catálogo</a>
+            <a class="nav__link" href="/garaje">Mi garaje</a>
+            <a class="nav__link" href="/ayuda">Ayuda</a>
+        </nav>
+
+        <div class="site-header__actions">
+            <button class="icon-btn theme-toggle" type="button" data-theme-toggle aria-label="Cambiar tema">
+                <svg class="icon icon-sun" width="20" height="20"><use href="#i-sun" /></svg>
+                <svg class="icon icon-moon" width="20" height="20"><use href="#i-moon" /></svg>
+            </button>
+            <a class="icon-btn" href="/login" aria-label="Mi cuenta"><svg class="icon" width="20" height="20"><use href="#i-user" /></svg></a>
+            <a class="icon-btn" href="/carrito" aria-label="Carrito"><svg class="icon" width="20" height="20"><use href="#i-bag" /></svg></a>
+            <button class="icon-btn site-header__menu" type="button" data-menu-toggle aria-label="Abrir menú" aria-expanded="false">
+                <svg class="icon" width="20" height="20"><use href="#i-menu" /></svg>
+            </button>
+        </div>
+    </div>
+</header>
+
+<main>
+    <!-- ===== Hero + buscador de auto ===== -->
+    <section class="hero">
+        <div class="container hero__inner">
+            <div class="hero__content">
+                <span class="hero__line" aria-hidden="true"></span>
+                <p class="hero__eyebrow">— Precisión para cada camino</p>
+                <h1 class="hero__title"><span>La pieza</span> <span>correcta.</span> <span>Sin errores.</span></h1>
+                <p class="hero__text">Encuentra refacciones compatibles con tu auto, compara opciones y recíbelas donde estés.</p>
+
+                <div class="hero__stats">
+                    <div class="hero__stat"><strong>+25 mil</strong><span>piezas verificadas</span></div>
+                    <div class="hero__stat"><strong>4.9/5</strong><span>clientes satisfechos</span></div>
+                    <div class="hero__stat"><strong>12 meses</strong><span>de garantía</span></div>
+                </div>
+            </div>
+
+            <form class="finder" data-finder novalidate>
+                <p class="finder__eyebrow"><svg class="icon" width="16" height="16"><use href="#i-zap" /></svg> Compatibilidad garantizada</p>
+                <h2 class="finder__title">¿Qué auto tienes?</h2>
+                <p class="finder__text">Te mostramos únicamente piezas que sí le quedan.</p>
+
+                <div class="finder__grid">
+                    <div class="field">
+                        <label class="field__label" for="finder-marca">Marca</label>
+                        <div class="select">
+                            <select class="select__control" id="finder-marca" name="marca"><option value="">Selecciona</option></select>
+                            <svg class="icon select__icon" width="16" height="16"><use href="#i-chevron-down" /></svg>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="field__label" for="finder-modelo">Modelo</label>
+                        <div class="select">
+                            <select class="select__control" id="finder-modelo" name="modelo" disabled><option value="">Selecciona</option></select>
+                            <svg class="icon select__icon" width="16" height="16"><use href="#i-chevron-down" /></svg>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="field__label" for="finder-anio">Año</label>
+                        <div class="select">
+                            <select class="select__control" id="finder-anio" name="anio" disabled><option value="">Selecciona</option></select>
+                            <svg class="icon select__icon" width="16" height="16"><use href="#i-chevron-down" /></svg>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="field__label" for="finder-motor">Motor</label>
+                        <div class="select">
+                            <select class="select__control" id="finder-motor" name="motor" disabled><option value="">Selecciona</option></select>
+                            <svg class="icon select__icon" width="16" height="16"><use href="#i-chevron-down" /></svg>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="btn btn--primary btn--block" type="submit">
+                    <svg class="icon" width="18" height="18"><use href="#i-search" /></svg> Buscar piezas
+                </button>
+
+                <p class="finder__note" data-finder-note>
+                    <svg class="icon" width="16" height="16"><use href="#i-check-circle" /></svg>
+                    <span>Guardaremos tu auto en Mi garaje</span>
+                </p>
+            </form>
+        </div>
+    </section>
+
+    <!-- ===== Beneficios ===== -->
+    <section class="benefits" aria-label="Beneficios">
+        <div class="container">
+            <ul class="benefits__list">
+                <li class="benefit">
+                    <span class="benefit__icon"><svg class="icon" width="20" height="20"><use href="#i-truck" /></svg></span>
+                    <div><strong class="benefit__title">Envío a todo México</strong><span class="benefit__text">Rápido y rastreable</span></div>
+                </li>
+                <li class="benefit">
+                    <span class="benefit__icon"><svg class="icon" width="20" height="20"><use href="#i-shield" /></svg></span>
+                    <div><strong class="benefit__title">Compra sin riesgo</strong><span class="benefit__text">Garantía de compatibilidad</span></div>
+                </li>
+                <li class="benefit">
+                    <span class="benefit__icon"><svg class="icon" width="20" height="20"><use href="#i-headphones" /></svg></span>
+                    <div><strong class="benefit__title">Expertos 24/7</strong><span class="benefit__text">Te ayudamos a elegir</span></div>
+                </li>
+                <li class="benefit">
+                    <span class="benefit__icon"><svg class="icon" width="20" height="20"><use href="#i-card" /></svg></span>
+                    <div><strong class="benefit__title">Pago flexible</strong><span class="benefit__text">Tarjeta, SPEI, PayPal y OXXO</span></div>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- ===== Categorías ===== -->
+    <section class="section" aria-labelledby="categorias-title">
+        <div class="container">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">Todo para tu auto</p>
+                    <h2 class="section-heading__title" id="categorias-title">Compra por categoría</h2>
+                </div>
+                <a class="link-arrow" href="/catalogo">Ver todo <svg class="icon" width="16" height="16"><use href="#i-arrow-right" /></svg></a>
+            </div>
+
+            <div class="category-grid">
+                <a class="category-card" href="/catalogo?cat=motor">
+                    <span class="category-card__icon"><svg class="icon" width="24" height="24"><use href="#i-gauge" /></svg></span>
+                    <h3 class="category-card__title">Motor y Encendido</h3>
+                    <p class="category-card__text">Rendimiento que se siente</p>
+                    <span class="category-card__arrow"><svg class="icon" width="16" height="16"><use href="#i-arrow-right" /></svg></span>
+                </a>
+                <a class="category-card" href="/catalogo?cat=frenos">
+                    <span class="category-card__icon"><svg class="icon" width="24" height="24"><use href="#i-disc" /></svg></span>
+                    <h3 class="category-card__title">Frenos y Suspensión</h3>
+                    <p class="category-card__text">Seguridad y estabilidad en cada frenada</p>
+                    <span class="category-card__arrow"><svg class="icon" width="16" height="16"><use href="#i-arrow-right" /></svg></span>
+                </a>
+                <a class="category-card" href="/catalogo?cat=accesorios">
+                    <span class="category-card__icon"><svg class="icon" width="24" height="24"><use href="#i-car" /></svg></span>
+                    <h3 class="category-card__title">Accesorios y Confort</h3>
+                    <p class="category-card__text">Detalles que mejoran tu experiencia al volante</p>
+                    <span class="category-card__arrow"><svg class="icon" width="16" height="16"><use href="#i-arrow-right" /></svg></span>
+                </a>
+                <a class="category-card" href="/catalogo?cat=herramientas">
+                    <span class="category-card__icon"><svg class="icon" width="24" height="24"><use href="#i-wrench" /></svg></span>
+                    <h3 class="category-card__title">Herramientas y Mantenimiento</h3>
+                    <p class="category-card__text">Todo lo que necesitas para revisar y cuidar tu auto</p>
+                    <span class="category-card__arrow"><svg class="icon" width="16" height="16"><use href="#i-arrow-right" /></svg></span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== Productos destacados =====
+         Las imágenes son URLs (columna imagen_url de PRODUCTO). Cámbialas por las reales. -->
+    <section class="section" aria-labelledby="favoritos-title">
+        <div class="container">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">Selección AUTOBOX</p>
+                    <h2 class="section-heading__title" id="favoritos-title">Los favoritos del taller</h2>
+                    <p class="section-heading__text">Calidad profesional, elegida por quienes más saben.</p>
+                </div>
+                <a class="link-arrow" href="/catalogo">Explorar catálogo <svg class="icon" width="16" height="16"><use href="#i-arrow-right" /></svg></a>
+            </div>
+
+            <div class="product-grid" data-products>
+                <!-- Producto 1 -->
+                <article class="product-card">
+                    <div class="product-card__media">
+                        <img src="https://placehold.co/600x430/151d2a/9aa8bc?text=Caja+de+direccion" alt="Caja de dirección hidráulica" loading="lazy" width="600" height="430" />
+                        <span class="badge">Más vendido</span>
+                        <button class="product-card__fav" type="button" data-fav aria-pressed="false" aria-label="Guardar Caja de dirección hidráulica en favoritos"><svg class="icon" width="16" height="16"><use href="#i-heart" /></svg></button>
+                    </div>
+                    <div class="product-card__body">
+                        <p class="product-card__sku">TRW · CD-NV-2018</p>
+                        <h3 class="product-card__name">Caja de dirección hidráulica</h3>
+                        <p class="product-card__rating">
+                            <span class="stars" role="img" aria-label="Calificación 4.5 de 5"><svg class="icon icon--filled" width="14" height="14"><use href="#i-star" /></svg><svg class="icon icon--filled" width="14" height="14"><use href="#i-star" /></svg><svg class="icon icon--filled" width="14" height="14"><use href="#i-star" /></svg><svg class="icon icon--filled" width="14" height="14"><use href="#i-star" /></svg><svg class="icon icon--filled" width="14" height="14"><use href="#i-star" /></svg></span>
+                            <span>4.5 (18)</span>
+                        </p>
+                        <div class="product-card__footer">
+                            <div>
+                                <p class="product-card__price">$6,899</p>
+                                <p class="product-card__old"><s>$7,490</s> <span>IVA incluido</span></p>
+                            </div>
+                            <button class="product-card__add" type="button" data-add="1" aria-label="Agregar Caja de dirección hidráulica al carrito">
+                                <svg class="icon icon-plus" width="20" height="20"><use href="#i-plus" /></svg>
+                                <svg class="icon icon-check" width="20" height="20"><use href="#i-check" /></svg>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Producto 2 -->
+                <article class="product-card">
+                    <div class="product-card__media">
+                        <img src="https://placehold.co/600x430/151d2a/9aa8bc?text=Bomba+de+agua" alt="Bomba de agua" loading="lazy" width="600" height="430" />
+                        <span class="badge">Más vendido</span>
+                        <button class="product-card__fav" type="button" data-fav aria-pressed="false" aria-label="Guardar Bomba de agua en favoritos"><svg class="icon" width="16" height="16"><use href="#i-heart" /></svg></button>
+                    </div>
+                    <div class="product-card__body">
+                        <p class="product-card__sku">GATES · WA-2.4L-2021</p>
+                        <h3 class="product-card__name">Bomba de agua</h3>
+                        <p class="product-card__rating">
+                            <span class="stars" role="img" aria-label="Calificación 4.7 de 5"><svg class="icon icon--filled" width="14" height="14"><use href="#i-star" /></svg><svg class="icon icon--filled" width="14" height="14"><use href="#i-star" /></svg><svg class="icon icon--filled" width="14" height="14"><use href="#i-star" /></svg><svg class="icon icon--filled" width="14" height="14"><use href="#i-star" /></svg><svg class="icon icon--filled" width="14" height="14"><use href="#i-star" /></svg></span>
+                            <span>4.7 (24)</span>
+                        </p>
+                        <div class="product-card__footer">
+                            <div>
+                                <p class="product-card__price">$3,490</p>
+                                <p class="product-card__old"><s>$3,800</s> <span>IVA incluido</span></p>
+                            </div>
+                            <button class="product-card__add" type="button" data-add="2" aria-label="Agregar Bomba de agua al carrito">
+                                <svg class="icon icon-plus" width="20" height="20"><use href="#i-plus" /></svg>
+                                <svg class="icon icon-check" width="20" height="20"><use href="#i-check" /></svg>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Producto 3 -->
+                <article class="product-card">
+                    <div class="product-card__media">
+                        <img src="https://placehold.co/600x430/151d2a/9aa8bc?text=Bomba+de+aceite" alt="Bomba de aceite" loading="lazy" width="600" height="430" />
+                        <span class="badge">Más vendido</span>
+                        <button class="product-card__fav" type="button" data-fav aria-pressed="false" aria-label="Guardar Bomba de aceite en favoritos"><svg class="icon" width="16" height="16"><use href="#i-heart" /></svg></button>
+                    </div>
+                    <div class="product-card__body">
+                        <p class="product-card__sku">MANN · OP-2.0T-2023</p>
+                        <h3 class="product-card__name">Bomba de aceite</h3>
+                        <p class="product-card__rating">
+                            <span class="stars" role="img" aria-label="Calificación 4.8 de 5"><svg class="icon icon--filled" width="14" height="14"><use href="#i-star" /></svg><svg class="icon icon--filled" width="14" height="14"><use href="#i-star" /></svg><svg class="icon icon--filled" width="14" height="14"><use href="#i-star" /></svg><svg class="icon icon--filled" width="14" height="14"><use href="#i-star" /></svg><svg class="icon icon--filled" width="14" height="14"><use href="#i-star" /></svg></span>
+                            <span>4.8 (31)</span>
+                        </p>
+                        <div class="product-card__footer">
+                            <div>
+                                <p class="product-card__price">$5,290</p>
+                                <p class="product-card__old"><s>$5,800</s> <span>IVA incluido</span></p>
+                            </div>
+                            <button class="product-card__add" type="button" data-add="3" aria-label="Agregar Bomba de aceite al carrito">
+                                <svg class="icon icon-plus" width="20" height="20"><use href="#i-plus" /></svg>
+                                <svg class="icon icon-check" width="20" height="20"><use href="#i-check" /></svg>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Producto 4 -->
+                <article class="product-card">
+                    <div class="product-card__media">
+                        <img src="https://placehold.co/600x430/151d2a/9aa8bc?text=Disco+de+freno" alt="Disco de freno" loading="lazy" width="600" height="430" />
+                        <span class="badge">Más vendido</span>
+                        <button class="product-card__fav" type="button" data-fav aria-pressed="false" aria-label="Guardar Disco de freno en favoritos"><svg class="icon" width="16" height="16"><use href="#i-heart" /></svg></button>
+                    </div>
+                    <div class="product-card__body">
+                        <p class="product-card__sku">BOSCH · BD-3.0-2024</p>
+                        <h3 class="product-card__name">Disco de freno</h3>
+                        <p class="product-card__rating">
+                            <span class="stars" role="img" aria-label="Calificación 4.6 de 5"><svg class="icon icon--filled" width="14" height="14"><use href="#i-star" /></svg><svg class="icon icon--filled" width="14" height="14"><use href="#i-star" /></svg><svg class="icon icon--filled" width="14" height="14"><use href="#i-star" /></svg><svg class="icon icon--filled" width="14" height="14"><use href="#i-star" /></svg><svg class="icon icon--filled" width="14" height="14"><use href="#i-star" /></svg></span>
+                            <span>4.6 (22)</span>
+                        </p>
+                        <div class="product-card__footer">
+                            <div>
+                                <p class="product-card__price">$2,990</p>
+                                <p class="product-card__old"><s>$3,290</s> <span>IVA incluido</span></p>
+                            </div>
+                            <button class="product-card__add" type="button" data-add="4" aria-label="Agregar Disco de freno al carrito">
+                                <svg class="icon icon-plus" width="20" height="20"><use href="#i-plus" /></svg>
+                                <svg class="icon icon-check" width="20" height="20"><use href="#i-check" /></svg>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+</main>
+
+<!-- ===== Footer ===== -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer__grid">
+            <div class="footer__brand">
+                <a class="logo logo--letter" href="/" aria-label="AUTOBOX - Inicio"><span class="logo__letter" aria-hidden="true">A</span><span class="logo__text">AUTOBOX</span></a>
+                <p>La pieza correcta para tu auto, sin errores. Envíos a todo México.</p>
+                <div class="footer__socials">
+                    <a class="footer__social" href="#" aria-label="Instagram">IG</a>
+                    <a class="footer__social" href="#" aria-label="Facebook">FB</a>
+                    <a class="footer__social" href="#" aria-label="YouTube">YT</a>
+                </div>
+            </div>
+
+            <div class="footer__col">
+                <h3 class="footer__heading">Comprar</h3>
+                <ul>
+                    <li><a href="/catalogo">Catálogo</a></li>
+                    <li><a href="/catalogo?cat=motor">Motor y encendido</a></li>
+                    <li><a href="/catalogo?cat=frenos">Frenos y suspensión</a></li>
+                    <li><a href="/catalogo?ofertas=1">Ofertas</a></li>
+                </ul>
+            </div>
+
+            <div class="footer__col">
+                <h3 class="footer__heading">Mi AutoBox</h3>
+                <ul>
+                    <li><a href="/garaje">Mi garaje</a></li>
+                    <li><a href="/pedidos">Mis pedidos</a></li>
+                    <li><a href="/login">Iniciar sesión</a></li>
+                    <li><a href="/registro">Crear cuenta</a></li>
+                </ul>
+            </div>
+
+            <div class="footer__col">
+                <h3 class="footer__heading">Ayuda</h3>
+                <ul>
+                    <li><a href="/ayuda">Centro de ayuda</a></li>
+                    <li><a href="/ayuda#envios">Envíos y entregas</a></li>
+                    <li><a href="/ayuda#garantia">Cambios y garantía</a></li>
+                    <li><a href="/contacto">Contacto</a></li>
+                </ul>
+            </div>
+
+            <div class="footer__col">
+                <h3 class="footer__heading">Confianza</h3>
+                <ul class="footer__trust">
+                    <li><span class="footer__check"><svg class="icon" width="10" height="10"><use href="#i-check" /></svg></span>Compra protegida</li>
+                    <li><span class="footer__check"><svg class="icon" width="10" height="10"><use href="#i-check" /></svg></span>Compatibilidad verificada</li>
+                    <li><span class="footer__check"><svg class="icon" width="10" height="10"><use href="#i-check" /></svg></span>Pagos seguros</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer__bottom">
+            <p>© 2026 AUTOBOX · Precisión para cada camino</p>
+            <nav class="footer__legal" aria-label="Legal">
+                <a href="/ayuda#envios">Envíos y devoluciones</a>
+                <a href="/ayuda#garantia">Garantía</a>
+                <a href="/ayuda">Ayuda 24/7</a>
+            </nav>
+        </div>
+    </div>
+</footer>
+
+<!-- ===== Interactividad mínima ===== -->
+<script>
+    (function () {
+        var root = document.documentElement;
+
+        /* --- Tema claro / oscuro --- */
+        var themeBtn = document.querySelector('[data-theme-toggle]');
+        function labelTheme() {
+            themeBtn.setAttribute('aria-label', root.dataset.theme === 'light' ? 'Cambiar a tema oscuro' : 'Cambiar a tema claro');
+        }
+        themeBtn.addEventListener('click', function () {
+            root.dataset.theme = root.dataset.theme === 'light' ? 'dark' : 'light';
+            try { localStorage.setItem('autobox:theme', root.dataset.theme); } catch (e) {}
+            labelTheme();
+        });
+        labelTheme();
+
+        /* --- Menú móvil --- */
+        var menuBtn = document.querySelector('[data-menu-toggle]');
+        var nav = document.querySelector('[data-nav]');
+        menuBtn.addEventListener('click', function () {
+            var open = nav.classList.toggle('is-open');
+            menuBtn.setAttribute('aria-expanded', String(open));
+        });
+
+        /* --- Buscador de auto (mismos datos que backend/database/seed.sql) --- */
+        var vehicles = [
+            { marca: 'Nissan', modelo: 'Tsuru', anio: 2015, motor: '1.6L' },
+            { marca: 'Nissan', modelo: 'Versa', anio: 2018, motor: '1.6L' },
+            { marca: 'Volkswagen', modelo: 'Jetta', anio: 2018, motor: '2.0L' },
+            { marca: 'Volkswagen', modelo: 'Vento', anio: 2016, motor: '1.6L' },
+            { marca: 'Chevrolet', modelo: 'Aveo', anio: 2016, motor: '1.6L' },
+            { marca: 'Chevrolet', modelo: 'Spark', anio: 2017, motor: '1.2L' },
+            { marca: 'Toyota', modelo: 'Corolla', anio: 2019, motor: '1.8L' },
+            { marca: 'Toyota', modelo: 'Hilux', anio: 2020, motor: '2.7L' },
+            { marca: 'Ford', modelo: 'Fiesta', anio: 2014, motor: '1.6L' },
+            { marca: 'Ford', modelo: 'Ranger', anio: 2019, motor: '3.2L' }
+        ];
+
+        var form = document.querySelector('[data-finder]');
+        var f = { marca: form.marca, modelo: form.modelo, anio: form.anio, motor: form.motor };
+        var note = form.querySelector('[data-finder-note] span');
+        var defaultNote = note.textContent;
+
+        function unique(list) { return list.filter(function (v, i) { return list.indexOf(v) === i; }); }
+        function fill(select, values) {
+            select.innerHTML = '<option value="">Selecciona</option>' +
+                values.map(function (v) { return '<option value="' + v + '">' + v + '</option>'; }).join('');
+            select.disabled = values.length === 0;
+        }
+        function pick(key, filter) {
+            return unique(vehicles.filter(filter).map(function (v) { return v[key]; })).sort();
+        }
+
+        fill(f.marca, pick('marca', function () { return true; }));
+
+        f.marca.addEventListener('change', function () {
+            fill(f.modelo, f.marca.value ? pick('modelo', function (v) { return v.marca === f.marca.value; }) : []);
+            fill(f.anio, []); fill(f.motor, []);
+        });
+        f.modelo.addEventListener('change', function () {
+            fill(f.anio, f.modelo.value ? pick('anio', function (v) {
+                return v.marca === f.marca.value && v.modelo === f.modelo.value;
+            }) : []);
+            fill(f.motor, []);
+        });
+        f.anio.addEventListener('change', function () {
+            fill(f.motor, f.anio.value ? pick('motor', function (v) {
+                return v.marca === f.marca.value && v.modelo === f.modelo.value && String(v.anio) === f.anio.value;
+            }) : []);
+        });
+
+        Object.keys(f).forEach(function (k) {
+            f[k].addEventListener('change', function () {
+                f[k].classList.remove('is-invalid');
+                note.textContent = defaultNote;
+            });
+        });
+
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+            var missing = Object.keys(f).filter(function (k) { return !f[k].value; });
+            if (missing.length) {
+                missing.forEach(function (k) { f[k].classList.add('is-invalid'); });
+                note.textContent = 'Completa los cuatro campos para continuar';
+                return;
+            }
+            var car = { marca: f.marca.value, modelo: f.modelo.value, anio: f.anio.value, motor: f.motor.value };
+            try { localStorage.setItem('autobox:garage', JSON.stringify(car)); } catch (err) {}
+            note.textContent = 'Guardado en Mi garaje: ' + car.marca + ' ' + car.modelo + ' ' + car.anio + ' ' + car.motor;
+            document.dispatchEvent(new CustomEvent('autobox:vehicle-selected', { detail: car }));
+        });
+
+        /* --- Favoritos y agregar al carrito --- */
+        document.querySelector('[data-products]').addEventListener('click', function (e) {
+            var fav = e.target.closest('[data-fav]');
+            if (fav) {
+                var on = fav.classList.toggle('is-active');
+                fav.setAttribute('aria-pressed', String(on));
+                return;
+            }
+            var add = e.target.closest('[data-add]');
+            if (add) {
+                document.dispatchEvent(new CustomEvent('autobox:add-to-cart', { detail: { id: Number(add.dataset.add) } }));
+                add.classList.add('is-added');
+                setTimeout(function () { add.classList.remove('is-added'); }, 1200);
+            }
+        });
+    })();
+</script>
+</body>
+</html>
