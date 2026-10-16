@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;500;600;700;800&display=swap");
 
+/* Tokens de color y tipografía compartidos por registro e inicio de sesión. */
 :root {
   color-scheme: dark;
   font-family: "Roboto Condensed", "Arial Narrow", Arial, sans-serif;
@@ -36,10 +37,21 @@ input {
   font: inherit;
 }
 
+/* Controles visuales que todavía no tienen navegación o acción conectada. */
+.inert-link {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  text-align: inherit;
+  cursor: pointer;
+}
+
 a {
   color: inherit;
 }
 
+/* Cabecera, marca y navegación principal. */
 .site-header {
   position: relative;
   z-index: 1;
@@ -103,7 +115,8 @@ a {
   margin-left: 48px;
 }
 
-.primary-nav a {
+.primary-nav a,
+.primary-nav .inert-link {
   color: #aeb2ba;
   font-size: 15px;
   font-weight: 600;
@@ -112,7 +125,9 @@ a {
 }
 
 .primary-nav a:hover,
-.primary-nav a:focus-visible {
+.primary-nav .inert-link:hover,
+.primary-nav a:focus-visible,
+.primary-nav .inert-link:focus-visible {
   color: #fff;
 }
 
@@ -149,6 +164,7 @@ a {
   stroke-width: 1.8;
 }
 
+/* Distribución en dos paneles: imagen promocional y formulario. */
 .registration-layout {
   display: grid;
   min-height: 640px;
@@ -226,6 +242,7 @@ a {
   background: var(--color-panel);
 }
 
+/* Campos, controles de contraseña y estado de validación del formulario. */
 .registration-card {
   width: min(100%, 495px);
 }
@@ -405,6 +422,7 @@ a {
   background: #0e0f12;
 }
 
+/* Columnas del pie de página, redes e indicadores de confianza. */
 .footer-columns {
   display: grid;
   max-width: 1440px;
@@ -435,18 +453,25 @@ a {
   gap: 9px;
 }
 
-.social-links a {
+.social-links a,
+.social-links .inert-link {
   display: grid;
   width: 36px;
   height: 36px;
+  padding: 0;
   place-items: center;
+  border: 0;
   border-radius: 50%;
   background: #202228;
   color: #aab0ba;
+  cursor: pointer;
   transition: background 160ms ease, color 160ms ease, transform 160ms ease;
 }
 
-.social-links a:hover {
+.social-links a:hover,
+.social-links .inert-link:hover,
+.social-links a:focus-visible,
+.social-links .inert-link:focus-visible {
   transform: translateY(-2px);
   background: var(--color-orange);
   color: #fff;
@@ -461,12 +486,12 @@ a {
   stroke-width: 1.8;
 }
 
-.social-links a:nth-child(2) svg {
+.social-links :nth-child(2) svg {
   fill: currentColor;
   stroke: none;
 }
 
-.social-links a:nth-child(2) svg path {
+.social-links :nth-child(2) svg path {
   fill: currentColor;
 }
 
@@ -496,14 +521,18 @@ a {
 }
 
 .footer-group li,
-.footer-group a {
+.footer-group a,
+.footer-group .inert-link {
   color: #9098a4;
   font-size: 12px;
   line-height: 1.5;
   text-decoration: none;
 }
 
-.footer-group a:hover {
+.footer-group a:hover,
+.footer-group .inert-link:hover,
+.footer-group a:focus-visible,
+.footer-group .inert-link:focus-visible {
   color: #fff;
 }
 
@@ -560,6 +589,7 @@ a {
   }
 }
 
+/* En pantallas pequeñas se apilan la presentación y el formulario. */
 @media (max-width: 680px) {
   .site-header,
   .header-content {
@@ -676,6 +706,7 @@ a {
 
 }
 
+/* Respeta la preferencia del usuario para reducir animaciones. */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

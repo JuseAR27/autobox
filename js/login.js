@@ -2,8 +2,8 @@ const loginForm = document.querySelector("#login-form");
 const passwordInput = document.querySelector("#password");
 const passwordToggle = document.querySelector(".password-toggle");
 const loginMessage = document.querySelector("#login-message");
-const forgotPasswordButton = document.querySelector(".forgot-password");
 
+// Alterna la visibilidad de la contraseña mientras se escribe.
 passwordToggle.addEventListener("click", () => {
   const isVisible = passwordInput.type === "text";
   passwordInput.type = isVisible ? "password" : "text";
@@ -11,11 +11,7 @@ passwordToggle.addEventListener("click", () => {
   passwordToggle.setAttribute("aria-pressed", String(!isVisible));
 });
 
-forgotPasswordButton.addEventListener("click", () => {
-  loginMessage.textContent = "La recuperación de contraseña estará disponible cuando se conecte el servicio de cuentas.";
-  loginMessage.classList.add("is-visible");
-});
-
+// Mantiene el inicio de sesión como demostración estática y valida los campos.
 loginForm.addEventListener("submit", (event) => {
   event.preventDefault();
 
