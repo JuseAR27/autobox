@@ -1,0 +1,605 @@
+<!doctype html>
+<html lang="es" data-theme="dark">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Catálogo de refacciones AUTOBOX: filtra por categoría, marca, precio y compatibilidad con tu auto." />
+    <title>Catálogo de piezas · AUTOBOX</title>
+
+    <script>
+        try { document.documentElement.dataset.theme = localStorage.getItem('autobox:theme') || 'dark'; } catch (e) {}
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+            href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Inter:wght@400;500;600;700;800&display=swap"
+            rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/catalogo.css" />
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-package" viewBox="0 0 24 24"><path d="m7.5 4.27 9 5.15"/><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></symbol>
+    <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="10" r="3"/><path d="M7 20.662V19a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v1.662"/></symbol>
+    <symbol id="i-bag" viewBox="0 0 24 24"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 6h16"/><path d="M4 12h16"/><path d="M4 18h16"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></symbol>
+    <symbol id="i-chevron-down" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+    <symbol id="i-heart" viewBox="0 0 24 24"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M12 5v14"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></symbol>
+    <symbol id="i-bot" viewBox="0 0 24 24"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></symbol>
+    <symbol id="i-arrow-up" viewBox="0 0 24 24"><path d="m5 12 7-7 7 7"/><path d="M12 19V5"/></symbol>
+    <symbol id="i-sliders" viewBox="0 0 24 24"><line x1="21" x2="14" y1="4" y2="4"/><line x1="10" x2="3" y1="4" y2="4"/><line x1="21" x2="12" y1="12" y2="12"/><line x1="8" x2="3" y1="12" y2="12"/><line x1="21" x2="16" y1="20" y2="20"/><line x1="12" x2="3" y1="20" y2="20"/><line x1="14" x2="14" y1="2" y2="6"/><line x1="8" x2="8" y1="10" y2="14"/><line x1="16" x2="16" y1="18" y2="22"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></symbol>
+    <symbol id="i-shield-check" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></symbol>
+    <symbol id="i-check-circle" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></symbol>
+    <symbol id="i-card" viewBox="0 0 24 24"><rect width="20" height="14" x="2" y="5" rx="2"/><line x1="2" x2="22" y1="10" y2="10"/></symbol>
+</svg>
+
+<header class="site-header">
+    <div class="container site-header__inner">
+        <a class="logo" href="/" aria-label="AUTOBOX - Inicio">
+            <span class="logo__mark"><svg class="icon" width="20" height="20"><use href="#i-package" /></svg></span>
+            <span class="logo__text">AUTO<b>BOX</b></span>
+        </a>
+
+        <nav class="nav" data-nav aria-label="Principal">
+            <a class="nav__link" href="/">Inicio</a>
+            <a class="nav__link is-active" href="/catalogo.html" aria-current="page">Catálogo</a>
+            <a class="nav__link" href="/garaje">Mi garaje</a>
+            <a class="nav__link" href="/ayuda">Ayuda</a>
+        </nav>
+
+        <div class="site-header__actions">
+            <button class="icon-btn theme-toggle" type="button" data-theme-toggle aria-label="Cambiar tema">
+                <svg class="icon icon-sun" width="20" height="20"><use href="#i-sun" /></svg>
+                <svg class="icon icon-moon" width="20" height="20"><use href="#i-moon" /></svg>
+            </button>
+            <a class="icon-btn" href="/login" aria-label="Mi cuenta"><svg class="icon" width="22" height="22"><use href="#i-user" /></svg></a>
+            <a class="icon-btn icon-btn--box" href="/carrito" aria-label="Carrito"><svg class="icon" width="20" height="20"><use href="#i-bag" /></svg></a>
+            <button class="icon-btn site-header__menu" type="button" data-menu-toggle aria-label="Abrir menú" aria-expanded="false">
+                <svg class="icon" width="20" height="20"><use href="#i-menu" /></svg>
+            </button>
+        </div>
+    </div>
+</header>
+
+<main class="container">
+    <!-- ===== Encabezado de página ===== -->
+    <section class="page-head">
+        <nav aria-label="Ruta de navegación">
+            <ol class="breadcrumb">
+                <li><a href="/">Inicio</a></li>
+                <li aria-current="page">Catálogo</li>
+            </ol>
+        </nav>
+
+        <p class="eyebrow">Encuentra con precisión</p>
+        <h1 class="page-title">Catálogo de piezas</h1>
+        <p class="page-subtitle">Selecciona tu vehículo para verificar compatibilidad</p>
+    </section>
+
+    <!-- ===== Buscador de auto ===== -->
+    <section class="vehicle-bar" aria-label="Buscar por vehículo">
+        <form class="vehicle-bar__form" data-finder novalidate>
+            <div class="field">
+                <label class="field__label" for="f-marca">Marca</label>
+                <div class="select">
+                    <select class="select__control" id="f-marca" name="marca"><option value="">Selecciona</option></select>
+                    <svg class="icon select__icon" width="16" height="16"><use href="#i-chevron-down" /></svg>
+                </div>
+            </div>
+            <div class="field">
+                <label class="field__label" for="f-modelo">Modelo</label>
+                <div class="select">
+                    <select class="select__control" id="f-modelo" name="modelo" disabled><option value="">Selecciona</option></select>
+                    <svg class="icon select__icon" width="16" height="16"><use href="#i-chevron-down" /></svg>
+                </div>
+            </div>
+            <div class="field">
+                <label class="field__label" for="f-anio">Año</label>
+                <div class="select">
+                    <select class="select__control" id="f-anio" name="anio" disabled><option value="">Selecciona</option></select>
+                    <svg class="icon select__icon" width="16" height="16"><use href="#i-chevron-down" /></svg>
+                </div>
+            </div>
+            <div class="field">
+                <label class="field__label" for="f-motor">Motor</label>
+                <div class="select">
+                    <select class="select__control" id="f-motor" name="motor" disabled><option value="">Selecciona</option></select>
+                    <svg class="icon select__icon" width="16" height="16"><use href="#i-chevron-down" /></svg>
+                </div>
+            </div>
+            <button class="btn-search" type="submit" data-finder-submit disabled>
+                <svg class="icon" width="18" height="18"><use href="#i-search" /></svg> Buscar piezas
+            </button>
+        </form>
+    </section>
+
+    <!-- ===== Filtros + resultados ===== -->
+    <div class="catalog">
+        <div class="filters-overlay" data-filters-overlay hidden></div>
+
+        <aside class="filters" id="filtros" data-filters aria-label="Filtros">
+            <div class="filters__head">
+                <h2 class="filters__title">Filtrar productos</h2>
+                <div class="filters__head-actions">
+                    <button class="link-btn" type="button" data-clear>Limpiar</button>
+                    <button class="filters__close" type="button" data-filters-close aria-label="Cerrar filtros"><svg class="icon" width="18" height="18"><use href="#i-x" /></svg></button>
+                </div>
+            </div>
+
+            <div class="filter-group" role="radiogroup" aria-labelledby="g-cat">
+                <h3 class="filter-group__title" id="g-cat">Categoría</h3>
+                <label class="option"><input class="radio" type="radio" name="cat" value="todas" checked /> Todas</label>
+                <label class="option"><input class="radio" type="radio" name="cat" value="motor" /> Motor y Encendido</label>
+                <label class="option"><input class="radio" type="radio" name="cat" value="frenos" /> Frenos y Suspensión</label>
+                <label class="option"><input class="radio" type="radio" name="cat" value="accesorios" /> Accesorios y Confort</label>
+                <label class="option"><input class="radio" type="radio" name="cat" value="herramientas" /> Herramientas y Mantenimiento</label>
+            </div>
+
+            <div class="filter-group">
+                <h3 class="filter-group__title">Compatibilidad</h3>
+                <div class="switch-row">
+                    <span id="only-mine-label">Solo para mi auto</span>
+                    <label class="switch">
+                        <input type="checkbox" data-only-mine aria-labelledby="only-mine-label" disabled />
+                        <span class="switch__track"></span>
+                    </label>
+                </div>
+                <p class="filter-hint" data-vehicle-hint>
+                    <span data-vehicle-hint-text>Agrega un auto para activar este filtro</span>
+                    <button class="link-btn" type="button" data-clear-vehicle hidden>Quitar auto</button>
+                </p>
+            </div>
+
+            <div class="filter-group" role="group" aria-labelledby="g-brand">
+                <h3 class="filter-group__title" id="g-brand">Marca</h3>
+                <label class="option"><input class="check" type="checkbox" name="brand" value="bosch" /> Bosch</label>
+                <label class="option"><input class="check" type="checkbox" name="brand" value="gates" /> Gates</label>
+                <label class="option"><input class="check" type="checkbox" name="brand" value="brembo" /> Brembo</label>
+                <label class="option"><input class="check" type="checkbox" name="brand" value="kyb" /> KYB</label>
+                <label class="option"><input class="check" type="checkbox" name="brand" value="ngk" /> NGK</label>
+                <label class="option"><input class="check" type="checkbox" name="brand" value="lth" /> LTH</label>
+            </div>
+
+            <div class="filter-group">
+                <h3 class="filter-group__title"><label for="price-range">Precio</label></h3>
+                <div class="range" data-range>
+                    <input id="price-range" type="range" min="0" max="7000" step="100" value="7000" />
+                    <div class="range__labels"><span>$0</span><span data-price-label>$7,000+</span></div>
+                </div>
+            </div>
+
+            <button class="btn-search filters__apply" type="button" data-filters-close data-apply-label>Ver resultados</button>
+        </aside>
+
+        <section class="results" id="resultados" aria-label="Resultados">
+            <div class="toolbar">
+                <button class="filters-toggle" type="button" data-filters-open aria-controls="filtros">
+                    <svg class="icon" width="18" height="18"><use href="#i-sliders" /></svg> Filtros
+                </button>
+
+                <label class="search">
+                    <span class="visually-hidden">Buscar pieza</span>
+                    <svg class="icon search__icon" width="18" height="18"><use href="#i-search" /></svg>
+                    <input class="search__input" type="search" placeholder="Busca pieza, marca o número de parte" data-search autocomplete="off" />
+                </label>
+
+                <div class="sort">
+                    <label class="visually-hidden" for="sort">Ordenar por</label>
+                    <div class="select">
+                        <select class="select__control" id="sort" data-sort>
+                            <option value="popular">Más populares</option>
+                            <option value="rating">Mejor calificados</option>
+                            <option value="price-asc">Precio: menor a mayor</option>
+                            <option value="price-desc">Precio: mayor a menor</option>
+                            <option value="new">Novedades</option>
+                        </select>
+                        <svg class="icon select__icon" width="16" height="16"><use href="#i-chevron-down" /></svg>
+                    </div>
+                </div>
+            </div>
+
+            <p class="results-count" data-count aria-live="polite"></p>
+
+            <div class="product-grid" data-grid></div>
+
+            <div class="empty" data-empty hidden>
+                <svg class="icon" width="40" height="40"><use href="#i-search" /></svg>
+                <h3>No encontramos piezas</h3>
+                <p>Prueba quitando algún filtro o buscando con otras palabras.</p>
+                <button class="btn-search" type="button" data-clear>Limpiar filtros</button>
+            </div>
+        </section>
+    </div>
+</main>
+
+<!-- ===== Footer ===== -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer__grid">
+            <div class="footer__brand">
+                <a class="logo logo--sm" href="/" aria-label="AUTOBOX - Inicio">
+                    <span class="logo__mark"><svg class="icon" width="18" height="18"><use href="#i-package" /></svg></span>
+                    <span class="logo__text">AUTO<b>BOX</b></span>
+                </a>
+                <p>La pieza correcta para tu auto, sin errores. Envíos a todo México.</p>
+                <div class="footer__socials">
+                    <a class="footer__social" href="#" aria-label="Instagram">IG</a>
+                    <a class="footer__social" href="#" aria-label="Facebook">FB</a>
+                    <a class="footer__social" href="#" aria-label="YouTube">YT</a>
+                </div>
+            </div>
+
+            <div class="footer__col">
+                <h3 class="footer__heading">Comprar</h3>
+                <ul>
+                    <li><a href="/catalogo.html">Catálogo</a></li>
+                    <li><a href="/catalogo.html?cat=motor">Motor y encendido</a></li>
+                    <li><a href="/catalogo.html?cat=frenos">Frenos y suspensión</a></li>
+                    <li><a href="/catalogo.html">Ofertas</a></li>
+                </ul>
+            </div>
+
+            <div class="footer__col">
+                <h3 class="footer__heading">Mi AutoBox</h3>
+                <ul>
+                    <li><a href="/garaje">Mi garaje</a></li>
+                    <li><a href="/pedidos">Mis pedidos</a></li>
+                    <li><a href="/login">Iniciar sesión</a></li>
+                    <li><a href="/registro">Crear cuenta</a></li>
+                </ul>
+            </div>
+
+            <div class="footer__col">
+                <h3 class="footer__heading">Ayuda</h3>
+                <ul>
+                    <li><a href="/ayuda">Centro de ayuda</a></li>
+                    <li><a href="/ayuda#envios">Envíos y entregas</a></li>
+                    <li><a href="/ayuda#garantia">Cambios y garantía</a></li>
+                    <li><a href="/contacto">Contacto</a></li>
+                </ul>
+            </div>
+
+            <div class="footer__col">
+                <h3 class="footer__heading">Confianza</h3>
+                <ul class="footer__trust">
+                    <li><svg class="icon" width="16" height="16"><use href="#i-shield-check" /></svg>Compra protegida</li>
+                    <li><svg class="icon" width="16" height="16"><use href="#i-check-circle" /></svg>Compatibilidad verificada</li>
+                    <li><svg class="icon" width="16" height="16"><use href="#i-card" /></svg>Pagos seguros</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer__bottom">
+            <p>© 2026 AutoBox México. Todos los derechos reservados.</p>
+            <nav class="footer__legal" aria-label="Legal">
+                <a href="/privacidad">Privacidad</a><a href="/terminos">Términos</a><a href="/cookies">Cookies</a>
+            </nav>
+        </div>
+    </div>
+</footer>
+
+<button class="to-top" type="button" data-to-top aria-label="Volver arriba"><svg class="icon" width="20" height="20"><use href="#i-arrow-up" /></svg></button>
+<a class="advisor" href="/ayuda" aria-label="Asesor 24/7">
+    <svg class="icon" width="20" height="20"><use href="#i-bot" /></svg>
+    <span>Asesor 24/7</span>
+    <span class="advisor__dot" aria-hidden="true"></span>
+</a>
+
+<script>
+    (() => {
+        const $ = (sel, root = document) => root.querySelector(sel);
+        const $$ = (sel, root = document) => [...root.querySelectorAll(sel)];
+        const rootEl = document.documentElement;
+
+        const vehicles = [
+            { id: 1, marca: 'Nissan', modelo: 'Tsuru', anio: 2015, motor: '1.6L' },
+            { id: 2, marca: 'Nissan', modelo: 'Versa', anio: 2018, motor: '1.6L' },
+            { id: 3, marca: 'Volkswagen', modelo: 'Jetta', anio: 2018, motor: '2.0L' },
+            { id: 4, marca: 'Volkswagen', modelo: 'Vento', anio: 2016, motor: '1.6L' },
+            { id: 5, marca: 'Chevrolet', modelo: 'Aveo', anio: 2016, motor: '1.6L' },
+            { id: 6, marca: 'Chevrolet', modelo: 'Spark', anio: 2017, motor: '1.2L' },
+            { id: 7, marca: 'Toyota', modelo: 'Corolla', anio: 2019, motor: '1.8L' },
+            { id: 8, marca: 'Toyota', modelo: 'Hilux', anio: 2020, motor: '2.7L' },
+            { id: 9, marca: 'Ford', modelo: 'Fiesta', anio: 2014, motor: '1.6L' },
+            { id: 10, marca: 'Ford', modelo: 'Ranger', anio: 2019, motor: '3.2L' }
+        ];
+
+        const img = (name) => 'https://placehold.co/600x440/1c2026/9aa1ab?text=' + encodeURIComponent(name);
+
+        const P = (id, cat, brand, sku, name, price, old, rating, reviews, badge, fits) =>
+            ({ id, cat, brand, sku, name, price, old, rating, reviews, badge, fits, img: img(name) });
+
+        const products = [
+            P(1, 'herramientas', 'Foxwell', 'FOX-OBD2', 'Escáner automotriz OBD2 Bluetooth', 1399, 1651, 4.9, 186, 'Nuevo', 'all'),
+            P(2, 'frenos', 'Akebono', 'AKB-ACT', 'Balatas semimetálicas ProACT', 979, 0, 4.8, 179, '', [1, 2, 5, 6, 9]),
+            P(3, 'motor', 'Gates', 'GTS-RD88', 'Kit mangueras de radiador', 849, 0, 4.7, 172, '', [3, 4, 7]),
+            P(4, 'herramientas', 'Rain-X', 'RX-4L', 'Líquido limpiaparabrisas 4 L', 219, 0, 4.6, 165, '', 'all'),
+            P(5, 'herramientas', 'Prestone', 'PKS-AF1', 'Anticongelante largo plazo 3.78 L', 329, 0, 4.7, 158, '', 'all'),
+            P(6, 'herramientas', 'Stanley', 'STN-108', 'Juego de herramientas 108 piezas', 2490, 2890, 4.8, 150, '', 'all'),
+            P(7, 'motor', 'Bosch', 'BSH-FA21', 'Filtro de aceite de alto flujo', 189, 0, 4.8, 143, '', [1, 2, 3, 4, 5, 6, 9]),
+            P(8, 'motor', 'NGK', 'NGK-IR4', 'Bujías de iridio (juego de 4)', 559, 649, 4.8, 136, '', [1, 2, 3, 5, 7]),
+            P(9, 'frenos', 'KYB', 'KYB-GD1', 'Amortiguador delantero de gas', 1450, 0, 4.7, 128, '', [1, 5, 9]),
+            P(10, 'frenos', 'Brembo', 'BRM-DV2', 'Discos de freno ventilados (par)', 2790, 0, 4.9, 121, 'Nuevo', [3, 4, 7]),
+            P(11, 'motor', 'LTH', 'LTH-45', 'Batería 12V 45Ah libre de mantenimiento', 1850, 2090, 4.6, 113, '', [1, 2, 5, 6, 9]),
+            P(12, 'motor', 'Mobil', 'MBL-5W30', 'Aceite sintético 5W-30 (4 L)', 899, 0, 4.9, 106, '', 'all'),
+            P(13, 'motor', 'Gates', 'GTS-BD21', 'Banda de distribución con tensor', 1180, 1340, 4.7, 98, '', [3, 4, 7, 9]),
+            P(14, 'motor', 'Bosch', 'BSH-AIR7', 'Filtro de aire de motor', 219, 0, 4.6, 91, '', [1, 3, 5, 7]),
+            P(15, 'frenos', 'Brembo', 'BRM-BT3', 'Balatas traseras cerámicas', 720, 0, 4.7, 84, '', [2, 3, 7]),
+            P(16, 'frenos', 'KYB', 'KYB-GT1', 'Amortiguador trasero de gas', 1190, 0, 4.6, 77, '', [1, 5, 9]),
+            P(17, 'accesorios', 'Bell', 'BLL-VOL', 'Cubierta de volante piel sintética', 349, 0, 4.4, 70, '', 'all'),
+            P(18, 'accesorios', 'Husky', 'HSK-TP4', 'Tapetes universales de hule (4 pzas)', 529, 0, 4.5, 62, '', 'all'),
+            P(19, 'accesorios', 'Anker', 'ANK-C60', 'Cargador USB-C doble de 60 W', 329, 0, 4.8, 55, 'Nuevo', 'all'),
+            P(20, 'herramientas', 'Truper', 'TRP-GH2', 'Gato hidráulico de botella 2 ton', 899, 0, 4.6, 47, '', 'all'),
+            P(21, 'herramientas', 'Urrea', 'URR-TQ12', 'Torquímetro de 1/2 pulgada', 1290, 1490, 4.7, 40, '', 'all'),
+            P(22, 'motor', 'Mann', 'OP-2.0T-2023', 'Bomba de aceite', 5290, 5800, 4.8, 31, '', [3]),
+            P(23, 'motor', 'Gates', 'WA-2.4L-2021', 'Bomba de agua', 3490, 3800, 4.7, 24, '', [7, 8]),
+            P(24, 'frenos', 'Bosch', 'BD-3.0-2024', 'Disco de freno', 2990, 3290, 4.6, 22, '', [8, 10]),
+            P(25, 'frenos', 'TRW', 'CD-NV-2018', 'Caja de dirección hidráulica', 6899, 8141, 4.5, 18, '', [2])
+        ];
+
+        const MAX_PRICE = 7000;
+        const state = { cat: 'todas', brands: new Set(), maxPrice: MAX_PRICE, onlyMine: false, search: '', sort: 'popular', vehicle: null };
+
+        let favs = new Set();
+        try { favs = new Set(JSON.parse(localStorage.getItem('autobox:favs')) || []); } catch (e) {}
+
+        const grid = $('[data-grid]');
+        const emptyBox = $('[data-empty]');
+        const countEl = $('[data-count]');
+        const applyBtn = $('[data-apply-label]');
+        const onlyMine = $('[data-only-mine]');
+        const hintText = $('[data-vehicle-hint-text]');
+        const clearVehicleBtn = $('[data-clear-vehicle]');
+        const range = $('#price-range');
+        const priceLabel = $('[data-price-label]');
+        const filtersEl = $('[data-filters]');
+        const overlay = $('[data-filters-overlay]');
+
+        const money = new Intl.NumberFormat('es-MX', { style: 'currency', currency: 'MXN', maximumFractionDigits: 0 });
+        const norm = (s) => s.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+        const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+        const icon = (id, size, cls = '') => `<svg class="icon ${cls}" width="${size}" height="${size}" aria-hidden="true"><use href="#i-${id}"/></svg>`;
+
+        function matches(p) {
+            if (state.cat !== 'todas' && p.cat !== state.cat) return false;
+            if (state.brands.size && !state.brands.has(p.brand.toLowerCase())) return false;
+            if (state.maxPrice < MAX_PRICE && p.price > state.maxPrice) return false;
+            if (state.onlyMine && state.vehicle && p.fits !== 'all' && !p.fits.includes(state.vehicle.id)) return false;
+            if (state.search) {
+                const hay = norm(`${p.name} ${p.brand} ${p.sku}`);
+                if (!norm(state.search).split(/\s+/).every((t) => hay.includes(t))) return false;
+            }
+            return true;
+        }
+
+        const sorters = {
+            popular: (a, b) => b.reviews - a.reviews,
+            rating: (a, b) => b.rating - a.rating || b.reviews - a.reviews,
+            'price-asc': (a, b) => a.price - b.price,
+            'price-desc': (a, b) => b.price - a.price,
+            new: (a, b) => (b.badge === 'Nuevo') - (a.badge === 'Nuevo') || b.reviews - a.reviews
+        };
+
+        function card(p) {
+            const fav = favs.has(p.id);
+            const name = esc(p.name);
+            return `
+            <article class="product-card">
+              <div class="product-card__media">
+                <img src="${esc(p.img)}" alt="${name}" loading="lazy" width="600" height="440" />
+                ${p.badge ? `<span class="badge">${esc(p.badge)}</span>` : ''}
+                <button class="product-card__fav${fav ? ' is-active' : ''}" type="button" data-fav="${p.id}" aria-pressed="${fav}" aria-label="Guardar ${name} en favoritos">${icon('heart', 18)}</button>
+              </div>
+              <div class="product-card__body">
+                <p class="product-card__sku">${esc(p.brand)} · ${esc(p.sku)}</p>
+                <h3 class="product-card__name">${name}</h3>
+                <p class="product-card__rating">${icon('star', 15, 'icon--filled')}<strong>${p.rating.toFixed(1)}</strong><span>(${p.reviews})</span></p>
+                <div class="product-card__footer">
+                  <div>
+                    <p class="product-card__price">${money.format(p.price)}</p>
+                    ${p.old ? `<p class="product-card__old"><s>${money.format(p.old)}</s></p>` : ''}
+                    <p class="product-card__tax">IVA incluido</p>
+                  </div>
+                  <button class="product-card__add" type="button" data-add="${p.id}" aria-label="Agregar ${name} al carrito">${icon('plus', 20, 'icon-plus')}${icon('check', 20, 'icon-check')}</button>
+                </div>
+              </div>
+            </article>`;
+        }
+
+        function render() {
+            const list = products.filter(matches).sort(sorters[state.sort]);
+            const n = list.length;
+
+            grid.innerHTML = list.map(card).join('');
+            grid.hidden = n === 0;
+            emptyBox.hidden = n !== 0;
+            countEl.textContent = `${n} resultado${n === 1 ? '' : 's'}`;
+            applyBtn.textContent = n === 0 ? 'Sin resultados' : `Ver ${n} resultado${n === 1 ? '' : 's'}`;
+        }
+
+        $$('input[name="cat"]').forEach((r) =>
+            r.addEventListener('change', () => { state.cat = r.value; render(); })
+        );
+
+        $$('input[name="brand"]').forEach((c) =>
+            c.addEventListener('change', () => {
+                c.checked ? state.brands.add(c.value) : state.brands.delete(c.value);
+                render();
+            })
+        );
+
+        function paintRange() {
+            const v = Number(range.value);
+            range.parentElement.style.setProperty('--fill', (v / MAX_PRICE) * 100 + '%');
+            priceLabel.textContent = v >= MAX_PRICE ? '$7,000+' : money.format(v);
+        }
+        range.addEventListener('input', () => { state.maxPrice = Number(range.value); paintRange(); render(); });
+
+        onlyMine.addEventListener('change', () => { state.onlyMine = onlyMine.checked; render(); });
+
+        $('[data-search]').addEventListener('input', (e) => { state.search = e.target.value.trim(); render(); });
+        $('[data-sort]').addEventListener('change', (e) => { state.sort = e.target.value; render(); });
+
+        $$('[data-clear]').forEach((b) =>
+            b.addEventListener('click', () => {
+                state.cat = 'todas'; state.brands.clear(); state.maxPrice = MAX_PRICE; state.search = ''; state.onlyMine = false;
+                $('input[name="cat"][value="todas"]').checked = true;
+                $$('input[name="brand"]').forEach((c) => (c.checked = false));
+                range.value = MAX_PRICE; paintRange();
+                onlyMine.checked = false;
+                $('[data-search]').value = '';
+                render();
+            })
+        );
+
+        const form = $('[data-finder]');
+        const f = { marca: $('#f-marca'), modelo: $('#f-modelo'), anio: $('#f-anio'), motor: $('#f-motor') };
+        const submitBtn = $('[data-finder-submit]');
+
+        const unique = (arr) => [...new Set(arr)];
+        const pick = (key, filter) => unique(vehicles.filter(filter).map((v) => v[key])).sort();
+
+        function fill(select, values, selected = '') {
+            select.innerHTML = '<option value="">Selecciona</option>' +
+                values.map((v) => `<option value="${v}"${String(v) === String(selected) ? ' selected' : ''}>${v}</option>`).join('');
+            select.disabled = values.length === 0;
+        }
+
+        const findVehicle = () =>
+            vehicles.find((v) => v.marca === f.marca.value && v.modelo === f.modelo.value &&
+                String(v.anio) === f.anio.value && v.motor === f.motor.value) || null;
+
+        const refreshSubmit = () => { submitBtn.disabled = !findVehicle(); };
+
+        function fillFrom(v) {
+            fill(f.marca, pick('marca', () => true), v ? v.marca : '');
+            fill(f.modelo, v ? pick('modelo', (x) => x.marca === v.marca) : [], v ? v.modelo : '');
+            fill(f.anio, v ? pick('anio', (x) => x.marca === v.marca && x.modelo === v.modelo) : [], v ? v.anio : '');
+            fill(f.motor, v ? pick('motor', (x) => x.marca === v.marca && x.modelo === v.modelo && x.anio === v.anio) : [], v ? v.motor : '');
+            refreshSubmit();
+        }
+
+        f.marca.addEventListener('change', () => {
+            fill(f.modelo, f.marca.value ? pick('modelo', (v) => v.marca === f.marca.value) : []);
+            fill(f.anio, []); fill(f.motor, []); refreshSubmit();
+        });
+        f.modelo.addEventListener('change', () => {
+            fill(f.anio, f.modelo.value ? pick('anio', (v) => v.marca === f.marca.value && v.modelo === f.modelo.value) : []);
+            fill(f.motor, []); refreshSubmit();
+        });
+        f.anio.addEventListener('change', () => {
+            fill(f.motor, f.anio.value ? pick('motor', (v) => v.marca === f.marca.value && v.modelo === f.modelo.value && String(v.anio) === f.anio.value) : []);
+            refreshSubmit();
+        });
+        f.motor.addEventListener('change', refreshSubmit);
+
+        function setVehicle(v, activate) {
+            state.vehicle = v;
+            onlyMine.disabled = !v;
+            clearVehicleBtn.hidden = !v;
+            if (v) {
+                hintText.textContent = `Compatible con ${v.marca} ${v.modelo} ${v.anio} ${v.motor}`;
+                if (activate) { state.onlyMine = true; onlyMine.checked = true; }
+            } else {
+                hintText.textContent = 'Agrega un auto para activar este filtro';
+                state.onlyMine = false; onlyMine.checked = false;
+            }
+        }
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const v = findVehicle();
+            if (!v) return;
+            try { localStorage.setItem('autobox:garage', JSON.stringify({ marca: v.marca, modelo: v.modelo, anio: String(v.anio), motor: v.motor })); } catch (err) {}
+            setVehicle(v, true);
+            render();
+            $('#resultados').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+
+        clearVehicleBtn.addEventListener('click', () => {
+            try { localStorage.removeItem('autobox:garage'); } catch (err) {}
+            fillFrom(null);
+            setVehicle(null);
+            render();
+        });
+
+        grid.addEventListener('click', (e) => {
+            const favBtn = e.target.closest('[data-fav]');
+            if (favBtn) {
+                const id = Number(favBtn.dataset.fav);
+                favs.has(id) ? favs.delete(id) : favs.add(id);
+                favBtn.classList.toggle('is-active', favs.has(id));
+                favBtn.setAttribute('aria-pressed', String(favs.has(id)));
+                try { localStorage.setItem('autobox:favs', JSON.stringify([...favs])); } catch (err) {}
+                return;
+            }
+            const add = e.target.closest('[data-add]');
+            if (add) {
+                document.dispatchEvent(new CustomEvent('autobox:add-to-cart', { detail: { id: Number(add.dataset.add) } }));
+                add.classList.add('is-added');
+                setTimeout(() => add.classList.remove('is-added'), 1200);
+            }
+        });
+
+        const openFilters = () => {
+            filtersEl.classList.add('is-open'); overlay.hidden = false; document.body.classList.add('no-scroll');
+        };
+        const closeFilters = () => {
+            filtersEl.classList.remove('is-open'); overlay.hidden = true; document.body.classList.remove('no-scroll');
+        };
+        $('[data-filters-open]').addEventListener('click', openFilters);
+        $$('[data-filters-close]').forEach((b) => b.addEventListener('click', closeFilters));
+        overlay.addEventListener('click', closeFilters);
+        document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeFilters(); });
+
+        const themeBtn = $('[data-theme-toggle]');
+        const labelTheme = () =>
+            themeBtn.setAttribute('aria-label', rootEl.dataset.theme === 'light' ? 'Cambiar a tema oscuro' : 'Cambiar a tema claro');
+        themeBtn.addEventListener('click', () => {
+            rootEl.dataset.theme = rootEl.dataset.theme === 'light' ? 'dark' : 'light';
+            try { localStorage.setItem('autobox:theme', rootEl.dataset.theme); } catch (e) {}
+            labelTheme();
+        });
+        labelTheme();
+
+        const menuBtn = $('[data-menu-toggle]');
+        const nav = $('[data-nav]');
+        menuBtn.addEventListener('click', () => {
+            const open = nav.classList.toggle('is-open');
+            menuBtn.setAttribute('aria-expanded', String(open));
+        });
+
+        const toTop = $('[data-to-top]');
+        window.addEventListener('scroll', () => toTop.classList.toggle('is-visible', window.scrollY > 500), { passive: true });
+        toTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+        /* ================= INICIO ================= */
+        const params = new URLSearchParams(location.search);
+
+        // ?cat=motor|frenos|accesorios|herramientas preselecciona la categoría
+        const catParam = params.get('cat');
+        const catRadio = catParam && $(`input[name="cat"][value="${CSS.escape(catParam)}"]`);
+        if (catRadio) { catRadio.checked = true; state.cat = catRadio.value; }
+
+        let saved = null;
+        try { saved = JSON.parse(localStorage.getItem('autobox:garage')); } catch (e) {}
+        const savedVehicle = saved && vehicles.find((v) => v.marca === saved.marca && v.modelo === saved.modelo &&
+            String(v.anio) === String(saved.anio) && v.motor === saved.motor);
+
+        fillFrom(savedVehicle || null);
+        setVehicle(savedVehicle || null, params.get('auto') === '1');
+
+        paintRange();
+        render();
+    })();
+</script>
+</body>
+</html>

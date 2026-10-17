@@ -1,54 +1,48 @@
-/* =========================================================
-   AUTOBOX - Estilos de la página Catálogo (catalogo.html)
-   Secciones: variables · base · header · encabezado · buscador de auto
-   · filtros · barra de herramientas · tarjetas · footer · widgets · responsive
-   ========================================================= */
 
-/* ---------- Variables ---------- */
 :root,
 :root[data-theme='dark'] {
   color-scheme: dark;
 
-  --bg: #0f1114;
-  --bg-elevated: #13161a;
-  --surface: #181b20;
-  --surface-2: #1f2329;
-  --control-bg: #121519;
-  --cart-bg: #0a0b0d;
-  --border: #2a2f36;
+  --bg: #0e1420;
+  --bg-elevated: #131b28;
+  --surface: #161f2d;
+  --surface-2: #1d2839;
+  --control-bg: #1d2839;
+  --cart-bg: #0a0f18;
+  --border: #243148;
   --text: #ffffff;
-  --muted: #a0a8b3;
+  --muted: #9aa8bc;
   --muted-cool: #93a9c4;
-  --track: #2f343b;
+  --track: #2a3850;
   --radio-bg: #ffffff;
   --radio-border: #cfd4db;
 
   --accent: #ff5a1f;
   --accent-hover: #ff7440;
-  --star: #f5a524;
-  --success: #22c55e;
+  --star: #f5b83d;
+  --success: #3ecf72;
   --danger: #ff4d4f;
 
-  --shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+  --shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
 }
 
 :root[data-theme='light'] {
   color-scheme: light;
 
-  --bg: #f4f5f7;
+  --bg: #f4f6fa;
   --bg-elevated: #ffffff;
   --surface: #ffffff;
-  --surface-2: #eef0f3;
+  --surface-2: #eef1f6;
   --control-bg: #ffffff;
-  --cart-bg: #eef0f3;
-  --border: #dcdfe5;
-  --text: #111418;
-  --muted: #5d6672;
+  --cart-bg: #eef1f6;
+  --border: #dde3ec;
+  --text: #0e1420;
+  --muted: #5b6b80;
   --muted-cool: #4f6788;
-  --track: #d5d9e0;
+  --track: #d5dbe5;
   --radio-border: #b9c0ca;
 
-  --shadow: 0 18px 40px rgba(17, 20, 24, 0.12);
+  --shadow: 0 20px 50px rgba(14, 20, 32, 0.12);
 }
 
 :root {
@@ -474,7 +468,7 @@ button { cursor: pointer; background: none; border: 0; }
   box-shadow: var(--shadow);
 }
 
-.product-card__media { position: relative; aspect-ratio: 1.35 / 1; background: #0a0b0d; }
+.product-card__media { position: relative; aspect-ratio: 1.35 / 1; background: #0a0f18; }
 .product-card__media img { width: 100%; height: 100%; object-fit: cover; }
 
 .badge {
@@ -482,7 +476,7 @@ button { cursor: pointer; background: none; border: 0; }
   top: 0.8rem; left: 0.8rem;
   padding: 0.4rem 0.65rem;
   border-radius: 6px;
-  background: rgba(10, 11, 13, 0.82);
+  background: rgba(10, 15, 24, 0.82);
   color: #fff;
   font-size: 0.62rem;
   font-weight: 800;
