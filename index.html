@@ -53,14 +53,14 @@
           <svg class="icon" width="14" height="14"><use href="#i-lock" /></svg>
           Compra protegida y garantía de compatibilidad
         </span>
-        <a class="topbar__side" href="/ayuda">Ayuda 24/7</a>
+        <a class="topbar__side" href="index.html#ayuda">Ayuda 24/7</a>
     </div>
 </div>
 
 <!-- ===== Header ===== -->
 <header class="site-header">
     <div class="container site-header__inner">
-        <a class="logo logo--cube" href="/" aria-label="AUTOBOX - Inicio">
+        <a class="logo logo--cube" href="index.html" aria-label="AUTOBOX - Inicio">
             <svg class="logo__cube" viewBox="0 0 32 32" aria-hidden="true">
                 <path d="M16 2 28 9v14l-12 7L4 23V9z" fill="currentColor" />
                 <path d="M16 16 28 9M16 16 4 9M16 16v14" fill="none" stroke="var(--color-bg)" stroke-width="2" stroke-linejoin="round" />
@@ -69,10 +69,10 @@
         </a>
 
         <nav class="nav" data-nav aria-label="Principal">
-            <a class="nav__link is-active" href="/" aria-current="page">Inicio</a>
-            <a class="nav__link" href="/catalogo">Catálogo</a>
-            <a class="nav__link" href="/garaje">Mi garaje</a>
-            <a class="nav__link" href="/ayuda">Ayuda</a>
+            <a class="nav__link is-active" href="index.html" aria-current="page">Inicio</a>
+            <a class="nav__link" href="catalogo.html">Catálogo</a>
+            <a class="nav__link" href="index.html#garaje">Mi garaje</a>
+            <a class="nav__link" href="index.html#ayuda">Ayuda</a>
         </nav>
 
         <div class="site-header__actions">
@@ -106,7 +106,7 @@
                 </div>
             </div>
 
-            <form class="finder" data-finder novalidate>
+            <form class="finder" id="garaje" data-finder novalidate>
                 <p class="finder__eyebrow"><svg class="icon" width="16" height="16"><use href="#i-zap" /></svg> Compatibilidad garantizada</p>
                 <h2 class="finder__title">¿Qué auto tienes?</h2>
                 <p class="finder__text">Te mostramos únicamente piezas que sí le quedan.</p>
@@ -186,29 +186,29 @@
                     <p class="eyebrow">Todo para tu auto</p>
                     <h2 class="section-heading__title" id="categorias-title">Compra por categoría</h2>
                 </div>
-                <a class="link-arrow" href="/catalogo">Ver todo <svg class="icon" width="16" height="16"><use href="#i-arrow-right" /></svg></a>
+                <a class="link-arrow" href="catalogo.html">Ver todo <svg class="icon" width="16" height="16"><use href="#i-arrow-right" /></svg></a>
             </div>
 
             <div class="category-grid">
-                <a class="category-card" href="/catalogo?cat=motor">
+                <a class="category-card" href="catalogo.html?cat=motor">
                     <span class="category-card__icon"><svg class="icon" width="24" height="24"><use href="#i-gauge" /></svg></span>
                     <h3 class="category-card__title">Motor y Encendido</h3>
                     <p class="category-card__text">Rendimiento que se siente</p>
                     <span class="category-card__arrow"><svg class="icon" width="16" height="16"><use href="#i-arrow-right" /></svg></span>
                 </a>
-                <a class="category-card" href="/catalogo?cat=frenos">
+                <a class="category-card" href="catalogo.html?cat=frenos">
                     <span class="category-card__icon"><svg class="icon" width="24" height="24"><use href="#i-disc" /></svg></span>
                     <h3 class="category-card__title">Frenos y Suspensión</h3>
                     <p class="category-card__text">Seguridad y estabilidad en cada frenada</p>
                     <span class="category-card__arrow"><svg class="icon" width="16" height="16"><use href="#i-arrow-right" /></svg></span>
                 </a>
-                <a class="category-card" href="/catalogo?cat=accesorios">
+                <a class="category-card" href="catalogo.html?cat=accesorios">
                     <span class="category-card__icon"><svg class="icon" width="24" height="24"><use href="#i-car" /></svg></span>
                     <h3 class="category-card__title">Accesorios y Confort</h3>
                     <p class="category-card__text">Detalles que mejoran tu experiencia al volante</p>
                     <span class="category-card__arrow"><svg class="icon" width="16" height="16"><use href="#i-arrow-right" /></svg></span>
                 </a>
-                <a class="category-card" href="/catalogo?cat=herramientas">
+                <a class="category-card" href="catalogo.html?cat=herramientas">
                     <span class="category-card__icon"><svg class="icon" width="24" height="24"><use href="#i-wrench" /></svg></span>
                     <h3 class="category-card__title">Herramientas y Mantenimiento</h3>
                     <p class="category-card__text">Todo lo que necesitas para revisar y cuidar tu auto</p>
@@ -228,7 +228,7 @@
                     <h2 class="section-heading__title" id="favoritos-title">Los favoritos del taller</h2>
                     <p class="section-heading__text">Calidad profesional, elegida por quienes más saben.</p>
                 </div>
-                <a class="link-arrow" href="/catalogo">Explorar catálogo <svg class="icon" width="16" height="16"><use href="#i-arrow-right" /></svg></a>
+                <a class="link-arrow" href="catalogo.html">Explorar catálogo <svg class="icon" width="16" height="16"><use href="#i-arrow-right" /></svg></a>
             </div>
 
             <div class="product-grid" data-products>
@@ -349,7 +349,7 @@
     <div class="container">
         <div class="footer__grid">
             <div class="footer__brand">
-                <a class="logo logo--letter" href="/" aria-label="AUTOBOX - Inicio"><span class="logo__letter" aria-hidden="true">A</span><span class="logo__text">AUTOBOX</span></a>
+                <a class="logo logo--letter" href="index.html" aria-label="AUTOBOX - Inicio"><span class="logo__letter" aria-hidden="true">A</span><span class="logo__text">AUTOBOX</span></a>
                 <p>La pieza correcta para tu auto, sin errores. Envíos a todo México.</p>
                 <div class="footer__socials">
                     <a class="footer__social" href="#" aria-label="Instagram">IG</a>
@@ -361,30 +361,30 @@
             <div class="footer__col">
                 <h3 class="footer__heading">Comprar</h3>
                 <ul>
-                    <li><a href="/catalogo">Catálogo</a></li>
-                    <li><a href="/catalogo?cat=motor">Motor y encendido</a></li>
-                    <li><a href="/catalogo?cat=frenos">Frenos y suspensión</a></li>
-                    <li><a href="/catalogo?ofertas=1">Ofertas</a></li>
+                    <li><a href="catalogo.html">Catálogo</a></li>
+                    <li><a href="catalogo.html?cat=motor">Motor y encendido</a></li>
+                    <li><a href="catalogo.html?cat=frenos">Frenos y suspensión</a></li>
+                    <li><a href="catalogo.html">Ofertas</a></li>
                 </ul>
             </div>
 
             <div class="footer__col">
                 <h3 class="footer__heading">Mi AutoBox</h3>
                 <ul>
-                    <li><a href="/garaje">Mi garaje</a></li>
+                    <li><a href="index.html#garaje">Mi garaje</a></li>
                     <li><a href="/pedidos">Mis pedidos</a></li>
                     <li><a href="login.html">Iniciar sesión</a></li>
-                    <li><a href="/registro">Crear cuenta</a></li>
+                    <li><a href="registro.html">Crear cuenta</a></li>
                 </ul>
             </div>
 
-            <div class="footer__col">
+            <div class="footer__col" id="ayuda">
                 <h3 class="footer__heading">Ayuda</h3>
                 <ul>
-                    <li><a href="/ayuda">Centro de ayuda</a></li>
-                    <li><a href="/ayuda#envios">Envíos y entregas</a></li>
-                    <li><a href="/ayuda#garantia">Cambios y garantía</a></li>
-                    <li><a href="/contacto">Contacto</a></li>
+                    <li><a href="index.html#ayuda">Centro de ayuda</a></li>
+                    <li id="envios"><a href="index.html#envios">Envíos y entregas</a></li>
+                    <li id="garantia"><a href="index.html#garantia">Cambios y garantía</a></li>
+                    <li><a href="index.html#ayuda">Contacto</a></li>
                 </ul>
             </div>
 
@@ -401,9 +401,9 @@
         <div class="footer__bottom">
             <p>© 2026 AUTOBOX · Precisión para cada camino</p>
             <nav class="footer__legal" aria-label="Legal">
-                <a href="/ayuda#envios">Envíos y devoluciones</a>
-                <a href="/ayuda#garantia">Garantía</a>
-                <a href="/ayuda">Ayuda 24/7</a>
+                <a href="index.html#envios">Envíos y devoluciones</a>
+                <a href="index.html#garantia">Garantía</a>
+                <a href="index.html#ayuda">Ayuda 24/7</a>
             </nav>
         </div>
     </div>
@@ -544,12 +544,20 @@
             }
             var add = e.target.closest('[data-add]');
             if (add) {
-                document.dispatchEvent(new CustomEvent('autobox:add-to-cart', { detail: { id: Number(add.dataset.add) } }));
+                var card = add.closest('.product-card');
+                var sku = card.querySelector('.product-card__sku').textContent.split('·').pop().trim();
+                var name = card.querySelector('.product-card__name').textContent.trim();
+                var price = Number(card.querySelector('.product-card__price').textContent.replace(/[^\d.]/g, ''));
+                var image = card.querySelector('.product-card__media img').src;
+                document.dispatchEvent(new CustomEvent('autobox:add-to-cart', {
+                    detail: { id: sku, name: name, price: price, image: image }
+                }));
                 add.classList.add('is-added');
                 setTimeout(function () { add.classList.remove('is-added'); }, 1200);
             }
         });
     })();
 </script>
+<script src="js/app.js"></script>
 </body>
 </html>

@@ -39,3 +39,19 @@ function addToCart(id_producto, nombre_producto, precio_unitario, imagenUrl) {
         cartFrame.contentWindow.postMessage('update-cart', '*');
     }
 }
+
+document.addEventListener("autobox:add-to-cart", (event) => {
+    const product = event.detail;
+    if (
+        !product ||
+        typeof product.id !== "string" ||
+        typeof product.name !== "string" ||
+        typeof product.price !== "number" ||
+        typeof product.image !== "string"
+    ) {
+        console.error("Datos de producto no válidos para agregar al carrito.", product);
+        return;
+    }
+
+    addToCart(product.id, product.name, product.price, product.image);
+});

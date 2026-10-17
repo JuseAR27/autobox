@@ -1,4 +1,3 @@
-
 :root,
 :root[data-theme='dark'] {
   color-scheme: dark;
@@ -1117,12 +1116,11 @@ body.cart-open {
 }
 
 /* El icono indica el tema al que cambiará el botón. */
-.theme-toggle .icon-sun,
-:root[data-theme='light'] .theme-toggle .icon-moon {
+.theme-toggle .icon-moon,
+:root[data-theme='light'] .theme-toggle .icon-sun {
   display: none;
 }
-:root:not([data-theme='light']) .theme-toggle .icon-moon,
-:root[data-theme='light'] .theme-toggle .icon-sun {
+:root[data-theme='light'] .theme-toggle .icon-moon {
   display: block;
 }
 
