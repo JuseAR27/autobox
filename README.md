@@ -34,4 +34,4 @@
 * **Jose Francisco Aquino Rivera:** Desarrollo de la lógica de la página de producto, y creación de la arquitectura de la base de datos simulada en LocalStorage.
 * **Alexia María Félix Hernández:** 
 * **Jose Guillermo Valencia Barrera:** Creacion de carrito, integracion del carrito en las demas paginas y logica de carrito, manejo de git  
-* **Victor Yael Balandrán Pedroza:**
+* **Victor Yael Balandrán Pedroza:** Diseño e implementación de las interfaces de registro e inicio de sesión, usando formularios para captar cada dato.
