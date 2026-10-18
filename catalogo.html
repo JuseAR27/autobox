@@ -571,6 +571,11 @@
                 add.classList.add('is-added');
                 setTimeout(() => add.classList.remove('is-added'), 1200);
             }
+            const card = e.target.closest('.product-card');
+            if (card) {
+                const sku = card.querySelector('.product-card__sku').textContent.split(' ').pop().trim();
+                window.location.href = `producto.html?id=${sku}`;
+            }
         });
 
         const openFilters = () => {
@@ -627,5 +632,6 @@
 </script>
 <script src="js/carrito.js"></script>
 <script src="js/app.js"></script>
+<script src="js/db.js"></script>
 </body>
 </html>

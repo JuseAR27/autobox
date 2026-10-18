@@ -399,3 +399,7 @@ button, input, select {
   color: var(--color-orange);
   font-weight: 700;
 }
+
+.product-card {
+    cursor: pointer;
+}

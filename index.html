@@ -555,9 +555,15 @@
                 add.classList.add('is-added');
                 setTimeout(function () { add.classList.remove('is-added'); }, 1200);
             }
+            var card = e.target.closest('.product-card');
+            if (card) {
+                var sku = card.querySelector('.product-card__sku').textContent.split(' ').pop().trim();
+                window.location.href = 'producto.html?id=' + sku;
+            }
         });
     })();
 </script>
 <script src="js/app.js"></script>
+<script src="js/db.js"></script>
 </body>
 </html>
