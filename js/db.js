@@ -58,40 +58,84 @@ class DatabaseSeeder {
         if (!localStorage.getItem('tb_producto')) {
             const productos = [
                 { 
-                    id_producto: 'FOX-OBD2', id_categoria: 1, id_marca_producto: 1, 
+                    id_producto: 'FOX-OBD2', 
+                    id_categoria: 1, 
+                    id_marca_producto: 1, 
                     nombre_producto: 'Escáner automotriz OBD2 Bluetooth', 
                     descripcion: 'Escáner automotriz OBD2 Bluetooth de calidad profesional, diseñado para ofrecer rendimiento confiable.', 
-                    precio_unitario: 1399.00, stock: 31, imagen: 'https://placehold.co/600x440/1c2026/9aa1ab?text=Escaner+OBD2' 
+                    precio_unitario: 1399.00, 
+                    stock: 31,
+                    imagen: 'https://placehold.co/600x440/1c2026/9aa1ab?text=Escaner+OBD2' 
                 },
                 { 
-                    id_producto: 'NGK-BKR6', id_categoria: 2, id_marca_producto: 2, 
-                    nombre_producto: 'Bujías Iridium IX - Set 4', 
+                    id_producto: 'NGK-IR4', // Corregido para coincidir con el catálogo de tu equipo
+                    id_categoria: 2, 
+                    id_marca_producto: 2, 
+                    nombre_producto: 'Bujías de iridio (juego de 4)', 
                     descripcion: 'Juego de 4 bujías de Iridium de alto rendimiento para mejor combustión.', 
-                    precio_unitario: 899.00, stock: 53, imagen: 'https://placehold.co/600x440/1c2026/9aa1ab?text=Bujias+Iridium'
+                    precio_unitario: 559.00, 
+                    stock: 53,
+                    imagen: 'https://placehold.co/600x440/1c2026/9aa1ab?text=Bujias+Iridium'
                 },
                 { 
-                    id_producto: 'CD-NV-2018', id_categoria: 3, id_marca_producto: 3, 
+                    id_producto: 'AKB-ACT', // Corregido para coincidir con el catálogo
+                    id_categoria: 3, 
+                    id_marca_producto: 3, 
+                    nombre_producto: 'Balatas semimetálicas ProACT', 
+                    descripcion: 'Balatas de freno delanteras de alta fricción térmica.', 
+                    precio_unitario: 979.00, 
+                    stock: 15,
+                    imagen: 'https://placehold.co/600x440/1c2026/9aa1ab?text=Balatas'
+                },
+                { 
+                    id_producto: 'GTS-RD88', // Corregido para coincidir con el catálogo
+                    id_categoria: 2, 
+                    id_marca_producto: 4, 
+                    nombre_producto: 'Kit mangueras de radiador', 
+                    descripcion: 'Kit completo de mangueras de silicón para sistema de enfriamiento.', 
+                    precio_unitario: 849.00, 
+                    stock: 8,
+                    imagen: 'https://placehold.co/600x440/1c2026/9aa1ab?text=Mangueras'
+                },
+                { 
+                    id_producto: 'CD-NV-2018', 
+                    id_categoria: 3, 
+                    id_marca_producto: 3, 
                     nombre_producto: 'Caja de dirección hidráulica', 
                     descripcion: 'Caja de dirección de repuesto OEM de alta durabilidad.', 
-                    precio_unitario: 6899.00, stock: 12, imagen: 'https://placehold.co/600x430/151d2a/9aa8bc?text=Caja+de+direccion'
+                    precio_unitario: 6899.00, 
+                    stock: 12, 
+                    imagen: 'https://placehold.co/600x430/151d2a/9aa8bc?text=Caja+de+direccion'
                 },
                 { 
-                    id_producto: 'WA-2.4L-2021', id_categoria: 2, id_marca_producto: 4, 
+                    id_producto: 'WA-2.4L-2021', 
+                    id_categoria: 2, 
+                    id_marca_producto: 4, 
                     nombre_producto: 'Bomba de agua', 
                     descripcion: 'Bomba de agua de alto flujo para enfriamiento óptimo del motor.', 
-                    precio_unitario: 3490.00, stock: 8, imagen: 'https://placehold.co/600x430/151d2a/9aa8bc?text=Bomba+de+agua'
+                    precio_unitario: 3490.00, 
+                    stock: 8, 
+                    imagen: 'https://placehold.co/600x430/151d2a/9aa8bc?text=Bomba+de+agua'
                 },
                 { 
-                    id_producto: 'OP-2.0T-2023', id_categoria: 2, id_marca_producto: 1, 
+                    id_producto: 'OP-2.0T-2023', 
+                    id_categoria: 2, 
+                    id_marca_producto: 1, 
                     nombre_producto: 'Bomba de aceite', 
                     descripcion: 'Bomba de aceite de precisión garantizada.', 
-                    precio_unitario: 5290.00, stock: 5, imagen: 'https://placehold.co/600x430/151d2a/9aa8bc?text=Bomba+de+aceite'
+                    precio_unitario: 5290.00, 
+                    stock: 5, 
+                    imagen: 'https://placehold.co/600x430/151d2a/9aa8bc?text=Bomba+de+aceite'
                 },
                 { 
-                    id_producto: 'BD-3.0-2024', id_categoria: 3, id_marca_producto: 2, 
+                    id_producto: 'BD-3.0-2024', 
+                    id_categoria: 3, 
+                    id_marca_producto: 2, 
                     nombre_producto: 'Disco de freno', 
                     descripcion: 'Discos de freno ventilados de alta durabilidad y disipación de calor.', 
-                    precio_unitario: 2990.00, stock: 20, imagen: 'https://placehold.co/600x430/151d2a/9aa8bc?text=Disco+de+freno'
+                    precio_unitario: 2990.00, 
+                    stock: 20, 
+                    imagen: 'https://placehold.co/600x430/151d2a/9aa8bc?text=Disco+de+freno'
                 }
             ];
             localStorage.setItem('tb_producto', JSON.stringify(productos));
